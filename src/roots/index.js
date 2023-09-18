@@ -1,9 +1,8 @@
-import Home from "./Home";
-import Cart from "./Cart";
-import Payment from "./Payment";
-import Orders from "./Orders";
-import Login from "./Login";
-import Logout from "./Logout";
-import ErorrSrc from "./ErorrSrc";
-
-export { Home, Cart, Payment, Orders, Login, Logout, ErorrSrc };
+export { default as Home } from "./Home";
+export { default as Cart } from "./Cart";
+export { default as Payment } from "./Payment";
+export { default as Orders } from "./Orders";
+export { default as Login } from "./Login";
+export { default as Logout } from "./Logout";
+export { default as ErorrSrc } from "./ErorrSrc";
+export { default as ProducDetails } from "./ProducDetails";
