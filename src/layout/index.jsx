@@ -10,8 +10,10 @@ const LayOut = () => {
     <div>
       <Header />
       <Outlet />
-      <FooterTop />
-      <FooterBottom />
+      <footer className="text-white ">
+        <FooterTop />
+        <FooterBottom />
+      </footer>
     </div>
   );
 };
