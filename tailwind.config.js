@@ -11,6 +11,9 @@ module.exports = {
           clr_acc_yellow: "#febd69",
         },
       },
+      width: {
+        fit_content: "fit-content",
+      },
     },
   },
   plugins: [],
