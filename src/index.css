@@ -15,14 +15,10 @@
 
 body {
   margin: 0;
-  font-family: Tahoma;
+  font-family: Tahoma Arial, Helvetica, sans-serif;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 /************* layout *****************/
 
 html {
@@ -57,7 +53,8 @@ html::-webkit-scrollbar-thumb {
 
 .offers-grid-cols {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: space-around;
   gap: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -75,6 +72,10 @@ html::-webkit-scrollbar-thumb {
   .offers-grid-cols {
     grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
   }
+}
+
+.offers-grid-cols > article{
+  margin: auto;
 }
 
 .wraper-center .swiper-wrapper {
@@ -129,6 +130,22 @@ option {
 option,
 optgroup {
   min-width: 200px;
+}
+
+/************* animations ***************/
+
+.click-on-me{
+  animation: move-icon 1s linear infinite;
+  transform-origin: bottom right;
+}
+
+@keyframes move-icon {
+  from{
+    transform: rotateZ(10deg);
+  }
+  to{
+    transform: rotateZ(0deg);
+  }
 }
 
 

@@ -1,11 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { bySection, byBrand, byType } from "./slices";
+import {cartReducer , suggegtionsReducer} from "./slices";
 
 const store = configureStore({
   reducer: {
-    section: bySection,
-    brand: byBrand,
-    type: byType,
+    cart:cartReducer,
+    suggegtions:suggegtionsReducer
   },
 });
 

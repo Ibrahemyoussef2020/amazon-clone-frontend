@@ -9,7 +9,7 @@ const Offer = ({ offer }) => {
       </h2>
       <picture className="block">
         <img
-          src={offer.image}
+          src={`${offer.image}.jpg`}
           alt={offer.title}
           className="h-[100%] w-[100%] object-cover mx-auto"
         />

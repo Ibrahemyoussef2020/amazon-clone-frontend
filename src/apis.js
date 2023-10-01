@@ -6,7 +6,7 @@ const api = axios.create({
   baseURL: "http://localhost:4000/",
 });
 
-const fetchData = async (dynamicData, setData) => {
+const fetchData = async (dynamicData , setData) => {
   return await api.get(dynamicData).then((res) => {
     setData(res?.data);
   });

@@ -52,7 +52,7 @@ const CarouselProducts = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={product.image_small}
+                    src={`${product.image_small}.jpg`}
                     alt={product.title}
                     className="h-[150px] w-[125px]"
                   />

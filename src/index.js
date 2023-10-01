@@ -15,6 +15,7 @@ import {
   Logout,
   ErorrSrc,
   ProducDetails,
+  SelectCategoryResults,
 } from "./roots";
 
 import "./index.css";
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "product-details/:part/:productId",
         element: <ProducDetails />,
+      },
+      {
+        path: "search-results/:searchType",
+        element: <SelectCategoryResults />
       },
       {
         path: "cart",

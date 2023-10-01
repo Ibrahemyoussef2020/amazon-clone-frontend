@@ -1,9 +1,7 @@
-import { filterSection } from "./FilterBySection";
-import { filterBrand } from "./FilterByBrand";
-import { filterType } from "./FilterByType";
+import { addToCart, removeFromCart } from "./handleCart";
+import {toggleSuggegtionsDrop} from './toggleSuggegtions'
 
-export { default as bySection } from "./FilterBySection";
-export { default as byType } from "./FilterByType";
-export { default as byBrand } from "./FilterByBrand";
+export { default as cartReducer } from "./handleCart";
+export { default as suggegtionsReducer } from "./toggleSuggegtions";
 
-export { filterSection, filterBrand, filterType };
+export {addToCart, removeFromCart , toggleSuggegtionsDrop };

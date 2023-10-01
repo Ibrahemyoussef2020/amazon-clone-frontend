@@ -6,15 +6,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { fetchData } from "../../apis";
-import { Link } from "react-router-dom";
 import VisitedItem from "./VisitedItem";
 
 const CarouselVisited = () => {
   const [products, setProducts] = useState([]);
+  const [section,setSection] = useState('consider');
 
   useEffect(
     (_) => {
-      fetchData("consider", setProducts);
+      fetchData(section, setProducts);
     },
     [products]
   );
@@ -39,10 +39,10 @@ const CarouselVisited = () => {
             slidesPerView: 3,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 4,
           },
           1400: {
-            slidesPerView: 7,
+            slidesPerView: 5,
           },
         }}
       >
@@ -53,7 +53,7 @@ const CarouselVisited = () => {
                 key={product.id}
                 className="py-4 !flex items-center h-[100%]"
               >
-                <VisitedItem product={product} rat={2} />
+                  <VisitedItem product={product} section={section} rat={2} />
               </SwiperSlide>
             );
           }

@@ -7,7 +7,7 @@ module.exports = {
         costum: {
           clr_primary: "#131921",
           clr_secondary: "#eaeded",
-          clr_acc_blue: "#232fa1",
+          clr_acc_blue: "#232f3e",
           clr_acc_yellow: "#febd69",
         },
       },

@@ -6,3 +6,5 @@ export { default as Login } from "./Login";
 export { default as Logout } from "./Logout";
 export { default as ErorrSrc } from "./ErorrSrc";
 export { default as ProducDetails } from "./ProducDetails";
+export { default as SelectCategoryResults } from "./SelectCategoryResults";
+

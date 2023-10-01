@@ -12,3 +12,9 @@ export { default as CarouselConsider } from "./home/CarouselConsider";
 export { default as CarouselHair } from "./home/CarouselHair";
 export { default as CarouselSports } from "./home/CarouselSports";
 export { default as CarouselVisited } from "./home/CarouselVisited";
+
+export { default as ProductDetailsInfo } from "./productDetails/ProductDetailsInfo";
+export { default as ProductPadge } from "./productDetails/ProductPadge";
+export { default as ProductRating } from "./productDetails/ProductRating";
+export { default as ProductBuy } from "./productDetails/ProductBuy";
+

@@ -19,7 +19,7 @@ const CarouselTodaysOffers = () => {
   );
 
   return (
-    <section className="bg-white mx-3 my-4 px-2 p-4">
+    <section className="bg-white mx-3 my-4 px-2 p-4" id="todays-offer">
       <h2 className="text-2xl font-semibold p-3 mb-3">
         Browese Today's Offers{" "}
         <a
@@ -61,7 +61,7 @@ const CarouselTodaysOffers = () => {
               className="block !m-auto"
             >
               <img
-                src={product.image}
+                src={`${product.image}.jpg`}
                 alt={product.title}
                 className="!m-auto max-w-[90%] max-h-[80%]"
               />
