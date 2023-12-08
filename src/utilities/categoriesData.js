@@ -1,7 +1,7 @@
 import React from 'react'
 
 const categoriesData =  {
-    "sections":['products Several','highest_rating','todays_offers','pets Meals','saving_Corner','hair_devices','consider To','sports & Fitness'],
+    "sections":['products Several','highest_rating','todays_offers','pets Meals','','hair_devices','consider To','sports & Fitness'],
     "categories":['appliaces','highest_rating','computers','mobiles','fashion'],
     "prands":['poma','highest_rating','lacoste','toshiba','sharp','D_&_C','corn','black_Roket'],
 

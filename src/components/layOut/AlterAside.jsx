@@ -50,7 +50,7 @@ const AlterAside = ({asideData}) => {
             <Link to='/search-results/pets'>Pets Corner</Link>
           </li>
           <li className=" mb-5">
-            <Link to='/search-results/saving_Corner'>Saving Corner</Link>
+            <Link to='/search-results/saving_corner'>Saving Corner</Link>
           </li>
           <li className=" mb-5">
             <Link to='/search-results/hair_devices'>Hair Care</Link>
