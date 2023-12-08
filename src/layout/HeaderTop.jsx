@@ -65,7 +65,7 @@ const HeaderTop = () => {
         </div>
 
         <div className="login  flex sm:hidden md:block py-1 my-1 px-1  hover:outline outline-1 rounded-sm outline-white ">
-          <div className="flex gap-2 items-center sm:block lg:flex text-xs cursor-pointer">
+          <div className="flex gap-2  items-center sm:block lg:flex text-xs cursor-pointer">
             <i className="fa-regular fa-user fa-2xl sm:hidden"></i>
             <span className="block">Hello , </span>
             <Link to="/login"> {isLogged ? 'Ibrahim' : 'Login'} </Link>
@@ -77,10 +77,10 @@ const HeaderTop = () => {
             
               <button
               id="Account-&-Lists-pc"
-                className="outline-none border-none bg-transparent mx-2  cursor-pointer"
+                className="outline-none !text-white border-none bg-transparent mx-2  cursor-pointer"
                 onClick={handleLogOut}
               >
-                <span className="mr-2">Logout</span>
+                <span className="mr-2 !text-white">Logout</span>
                 <i className="fa-regular fa-user"></i>
               </button>
               </>
@@ -88,11 +88,11 @@ const HeaderTop = () => {
               <> 
               <span>Account & Lists</span>
               <button
-              className="outline-none border-none bg-transparent mx-2 cursor-not-allowed"
+              className="outline-none !text-white border-none bg-transparent mx-2 cursor-not-allowed"
               disabled
               id="Account-&-Lists"
               >
-              <i className="fa-solid fa-caret-down"></i>
+              <i className="fa-solid !text-white fa-caret-down"></i>
               </button>
             </>
           }

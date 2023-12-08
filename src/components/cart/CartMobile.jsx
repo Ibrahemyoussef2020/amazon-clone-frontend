@@ -117,7 +117,7 @@ const handleByProcess = ()=>{
                     </div>
                   </div>
                 </div>
-                <div className="control flex gap-2  px-2 py-4">
+                <div className="control flex gap-2 py-4">
                     <div className="min-w-[150px] rounded-2xl bg-[#ebf0f0] flex justify-between w-[120px] border-solid border-[1px] border-[#ccc] select-count-shadow">
                       <button
                         onClick={_=>dispatch(decreaseQuantity(product.id))}         
