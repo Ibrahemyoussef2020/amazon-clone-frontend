@@ -8,6 +8,9 @@ import "swiper/css/navigation";
 import { fetchData } from "../../apis";
 import { Link } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const CarouselPets = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,16 +18,41 @@ const CarouselPets = () => {
     (_) => {
       fetchData("pets", setProducts);
     },
-    [products]
+    []
   );
+
+  if(!products?.length){
+    return( 
+      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+      </div>
+    )
+    }
 
   return (
     <section className="bg-white mx-3 my-4 px-2 p-4">
       <h2 className="text-2xl font-semibold px-3 pt-3 mb-0">
-        Pets mels corner <Link to="#">Shop now</Link>
+        Pets mels corner <a to="#">Shop now</a>
       </h2>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={1}
         loop={true}
         navigation={true}
         spaceBetween={0}
@@ -35,13 +63,13 @@ const CarouselPets = () => {
             slidesPerView: 4,
           },
           768: {
-            slidesPerView: 6,
+            slidesPerView: 5,
           },
           1024: {
-            slidesPerView: 8,
+            slidesPerView: 7,
           },
           1400: {
-            slidesPerView: 10,
+            slidesPerView: 9,
           },
         }}
       >
@@ -50,9 +78,9 @@ const CarouselPets = () => {
             return (
               <SwiperSlide
                 key={product.id}
-                className="py-4 !flex items-center h-[100%]"
+                className="py-4 !flex  h-[100%]"
               >
-                <Link to={`product-details/pets/${product.id}`}>
+                <Link to={`/product-details/pets/${product.id}`}>
                   <img
                     src={`${product.image}.jpg`}
                     alt={product.title}

@@ -8,6 +8,9 @@ import "swiper/css/navigation";
 import { fetchData } from "../../apis";
 import { Link } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const CarouselProducts = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,8 +18,33 @@ const CarouselProducts = () => {
     (_) => {
       fetchData("products", setProducts);
     },
-    [products]
+    []
   );
+
+  if(!products?.length){
+    return( 
+      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+      </div>
+    )
+    }
 
   return (
     <section className="bg-white mx-3 my-4 px-2 p-4">
@@ -48,11 +76,11 @@ const CarouselProducts = () => {
                 className="py-4 !flex items-center max-w-[125px] h-[100%]"
               >
                 <Link
-                  to={`product-details/products/${product.id}`}
+                  to={`/product-details/products/${product.id}`}
                   className="block !m-auto"
                 >
                   <img
-                    src={`${product.image_small}.jpg`}
+                    src={`/${product.image_small}.jpg`}
                     alt={product.title}
                     className="h-[150px] w-[125px]"
                   />

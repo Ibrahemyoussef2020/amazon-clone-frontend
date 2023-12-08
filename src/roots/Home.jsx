@@ -23,6 +23,7 @@ const Home = () => {
   return (
     <div className="bg-costum-clr_secondary">
       <Carousel />
+      <div className="max-w-[1800px] mx-auto">
       <Offers />
       <CarouselProducts />
       <CarouselCategory />
@@ -35,6 +36,7 @@ const Home = () => {
       <CarouselSports />
       <CarouselHair />
       <CarouselVisited />
+      </div>
     </div>
   );
 };

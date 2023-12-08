@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -16,10 +18,13 @@ import {
   ErorrSrc,
   ProducDetails,
   SelectCategoryResults,
+  ShowAllOffers
 } from "./roots";
 
 import "./index.css";
 import store from "./redux/store";
+
+if(process.env.NODE_ENV ===  'production') disableReactDevTools()
 
 const router = createBrowserRouter([
   {
@@ -36,7 +41,7 @@ const router = createBrowserRouter([
         element: <ProducDetails />,
       },
       {
-        path: "search-results/:searchType",
+        path: "search-results/:selectedValue",
         element: <SelectCategoryResults />
       },
       {
@@ -51,6 +56,10 @@ const router = createBrowserRouter([
         path: "orders",
         element: <Orders />,
       },
+      {
+        path: "offers",
+        element: <ShowAllOffers />,
+      }
     ],
   },
   {
@@ -65,11 +74,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+//  <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>
-  </React.StrictMode>
+//  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

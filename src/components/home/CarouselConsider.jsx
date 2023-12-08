@@ -5,6 +5,9 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 import { fetchData } from "../../apis";
 import { Link } from "react-router-dom";
 
@@ -15,19 +18,43 @@ const CarouselConsider = () => {
     (_) => {
       fetchData("consider", setProducts);
     },
-    [products]
+    []
   );
 
+  if(!products?.length){
+    return( 
+      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+      </div>
+    )
+    }
   return (
     <section className="bg-white mx-3 my-4 px-2 p-4">
       <h2 className="text-2xl font-semibold px-3 pt-3 mb-0">
         More items to consider{" "}
-        <Link
+        <a
           to="#"
           className="inline-block ml-2 text-sm text-[#67bdcc] font-[600] relative -top-[4px]"
         >
           See more
-        </Link>
+        </a>
       </h2>
       <Swiper
         slidesPerView={1}
@@ -40,17 +67,11 @@ const CarouselConsider = () => {
           570: {
             slidesPerView: 2,
           },
-          768: {
-            slidesPerView: 2,
-          },
           1024: {
             slidesPerView: 3,
-          },
-          1200: {
-            slidesPerView: 4,
-          },
+          },        
           1400: {
-            slidesPerView: 5,
+            slidesPerView: 4,
           },
         }}
       >
@@ -66,7 +87,7 @@ const CarouselConsider = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={`${product.image}.jpg`}
+                    src={`/${product.image}.jpg`}
                     alt={product.title}
                     className=" min-w-[250px] md:min-w-[300px] max-h-[150px]"
                   />

@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,7 +5,7 @@ import "swiper/css/navigation";
 
 const Carousel = () => {
   return (
-    <div className="h-[200px] md:h-[700px] bg-gradient-to-b from-stone-900">
+    <div className="h-[200px] main-moved-slider md:h-[700px] bg-gradient-to-b from-stone-900">
       <Swiper
         loop={true}
         spaceBetween={0}
@@ -17,37 +16,44 @@ const Carousel = () => {
       >
         <SwiperSlide className="sm:none">
             <img
-              src="images/slider-1.jpg"
+              src="/images/slider-0.jpg"
               alt="the rings of power"
-              className="h-[100%]"
+              className="h-[100%] min-w-[100%]"
+            />
+        </SwiperSlide>
+        <SwiperSlide className="sm:none">
+            <img
+              src="/images/slider-1.jpg"
+              alt="the rings of power"
+              className="h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="images/slider-2.jpg"
+              src="/images/slider-2.jpg"
               alt="the rings of power"
-              className="min-h-[100%]"
+              className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="images/slider-3.jpg"
+              src="/images/slider-3.jpg"
               alt="the rings of power"
-              className="min-h-[100%]"
+              className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="images/slider-4.jpg"
+              src="/images/slider-4.jpg"
               alt="the rings of power"
-              className="min-h-[100%]"
+              className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="images/slider-5.jpg"
+              src="/images/slider-5.jpg"
               alt="the rings of power"
-              className="min-h-[100%]"
+              className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
       </Swiper>

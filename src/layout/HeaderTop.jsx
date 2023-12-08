@@ -1,18 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {toggleAside ,logOut, logUp} from "../redux/slices"
 import Search from "../components/layOut/Search";
+import { useDispatch , useSelector } from "react-redux";
+import { useEffect } from "react";
+
 const HeaderTop = () => {
+  const {productCount} = useSelector(state => state.cart)
+  const {isOppend} = useSelector(state => state.aside)
+
+  const dispatch = useDispatch()
+  const {isLogged} = useSelector(state => state.log)
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+
+  },[isLogged])
+
+  console.log(isLogged);
+
+  const handleLogOut = ()=>{
+      dispatch(logOut())
+  }
+
+  const handleLogUp = ()=>{
+    navigate('/login')
+  }
+
+
   return (
     <>
-      <div className="pc hidden sm:flex  justify-between  sm:px-0  w-[100%] bg-costum-clr_primary px-1 ">
+      <div className="pc sm:pb-2 hidden sm:flex  justify-between  sm:px-0 sm:pt-1 lg:px-2  w-[100%] bg-costum-clr_acc_blue sm:bg-costum-clr_primary px-1 ">
         <Link
           to="/"
-          className="flex mr-2 max-h-[45px]  !flex-nowrap  lg:max-h-[50px] max-w-[120px] lg:max-w-[150px] my-1 py-2 justify-center rounded-sm	 hover:outline outline-1 outline-white text-white "
+          className="flex mr-2 max-h-[45px]  !flex-nowrap  lg:max-h-[50px] max-w-[120px] lg:max-w-[130px] my-1 py-2 justify-center rounded-sm	 hover:outline outline-1 outline-white text-white "
         >
           <img
             src="/images/amazon.png"
             alt="amazon"
-            className="h-[100%] w-[100%] "
+            className="h-[100%] max-w-[100%] "
           />
           <span className="text-sm relative -bottom-1 font-bold">.eg</span>
         </Link>
@@ -32,7 +57,10 @@ const HeaderTop = () => {
         <div className="country hidden lg:flex items-baseline my-1 py-3 lg:mr-1 gap-[1px] hover:outline outline-1 rounded-sm outline-white cursor-not-allowed">
           <img src="/images/usa.png" alt="USA" className="max-h-[15px]" />
           <span className="font-black text-sm">EN</span>
-          <button className="outline-none border-none bg-transparent" disabled>
+
+          <button
+          id="main-menu-dropbown" 
+            className="outline-none border-none bg-transparent" disabled>
             <i className="fa-solid fa-caret-down"></i>
           </button>
         </div>
@@ -41,17 +69,34 @@ const HeaderTop = () => {
           <div className="flex gap-2 items-center sm:block lg:flex text-xs cursor-pointer">
             <i className="fa-regular fa-user fa-2xl sm:hidden"></i>
             <span className="block">Hello , </span>
-            <Link to="/login"> Login </Link>
+            <Link to="/login"> {isLogged ? 'Ibrahim' : 'Login'} </Link>
           </div>
 
           <div className="font-black text-xs lg:text-sm  hidden lg:block">
-            <span>Account & Lists</span>
-            <button
+          {isLogged ? 
+            <>
+            
+              <button
+              id="Account-&-Lists-pc"
+                className="outline-none border-none bg-transparent mx-2  cursor-pointer"
+                onClick={handleLogOut}
+              >
+                <span className="mr-2">Logout</span>
+                <i className="fa-regular fa-user"></i>
+              </button>
+              </>
+              :
+              <> 
+              <span>Account & Lists</span>
+              <button
               className="outline-none border-none bg-transparent mx-2 cursor-not-allowed"
               disabled
-            >
+              id="Account-&-Lists"
+              >
               <i className="fa-solid fa-caret-down"></i>
-            </button>
+              </button>
+            </>
+          }
           </div>
         </div>
 
@@ -69,22 +114,19 @@ const HeaderTop = () => {
         >
           <i className="fa-solid fa-cart-flatbed text-white fa-2xl block mt-3 relative">
             <span className="absolute -top-4 left-2 w-[30px] h-[20px]  bg-costum-clr_primary text-sm text-orange-300 font-black flex justify-center items-center">
-              0
+              {productCount || 0}
             </span>
           </i>
-          <span className="text-md font-black mx-1">Cart</span>
         </Link>
-
-        <button className="outline-none border-none bg-transparent mx-1 inline-block lg:hidden justify-self-end">
-          <i className="fa-solid fa-bars"></i>
-        </button>
       </div>
 
       {/*******************mobile******************** */}
 
-      <div className="mobile w-[100%] flex justify-between items-center sm:hidden bg-costum-clr_primary px-1 lg:px-2">
-        <div className="flex">
-          <button className="outline-none mr-5 hover:text-green-500 border-none bg-transparent  inline-block -mt-2 lg:hidden justify-self-end">
+      <div className="mobile w-[100%] flex justify-between items-center sm:hidden bg-costum-clr_acc_blue px-1 lg:px-2">
+        <div className="flex mt-2">
+          <button
+            id="toggle-mib-main-aside" 
+            onClick={_=> dispatch(toggleAside(true))} className="outline-none mr-5 hover:text-green-500 border-none bg-transparent  inline-block -mt-2 lg:hidden justify-self-end">
             <i className="fa-solid fa-bars fa-xl"></i>
           </button>
           <Link
@@ -102,33 +144,46 @@ const HeaderTop = () => {
 
         <div className="flex gap-x-1 text-white ">
           <div className="login  flex sm:hidden md:block py-1 my-1 px-1 hover:text-green-500">
-            <div className="flex gap-2 items-center sm:block lg:flex text-xs cursor-pointer">
-              <i className="fa-regular fa-user fa-xl sm:hidden"></i>
-              <Link to="/login"> Login </Link>
-            </div>
+            {
+              isLogged ?
+              
+              <div className="flex gap-2 items-center sm:block lg:flex text-xs cursor-pointer">
+                <button onClick={handleLogOut} className="text-lg !font-thin"> Log out
+                  <i className="fa-solid fa-chevron-right text-xs text-[#eee] inline-block mt-2 ml-1"></i>
+                </button>
+                <i className="fa-regular fa-user text-3xl sm:hidden"></i>
 
-            <div className="font-black text-xs lg:text-sm  hidden lg:block">
-              <span>Account & Lists</span>
-              <button
-                className="outline-none border-none bg-transparent mx-2 cursor-not-allowed"
-                disabled
-              >
-                <i className="fa-solid fa-caret-down"></i>
-              </button>
-            </div>
+              </div>
+
+              :
+
+              <div className="flex gap-2 items-center sm:block lg:flex text-xs cursor-pointer">
+                <button onClick={handleLogUp} className=" text-lg !font-thin"> Log in
+                  <i className="fa-solid fa-chevron-right text-xs text-[#eee] inline-block mt-2 ml-1"></i>
+                </button>
+                <Link to='/orders'>
+                  <i className="fa-regular fa-user text-3xl !text-white sm:hidden"></i>
+                </Link>
+              </div>
+            }
           </div>
           <Link
             to="/cart"
             className=" py-0 my-1 px-2 text-sm flex items-baseline  text-white hover:text-green-500"
           >
-            <i className="fa-solid fa-cart-flatbed text-white fa-2xl block mt-3 relative  text-inherit">
-              <span className="absolute -top-4 left-2 w-[30px] h-[20px]  bg-costum-clr_primary text-sm text-orange-300 font-black flex justify-center items-center">
-                0
+            <i className="fa-solid fa-cart-flatbed text-white fa-2xl block mt-6 relative  text-inherit">
+              <span className="absolute -top-4 left-2 w-[30px] h-[20px] bg-costum-clr_acc_blue  sm:bg-costum-clr_primary text-sm text-orange-300 font-black flex justify-center items-center">
+                {productCount || 0}
               </span>
             </i>
-            <span className="text-md font-black mx-1 text-inherit ">Cart</span>
           </Link>
         </div>
+      </div>
+
+      <div className=" sm:hidden pt-1 bg-costum-clr_acc_blue w-[100%] pb-4"> 
+        {/**************************************** */}
+            <Search smallScreen={true}/>
+        {/**************************************** */}
       </div>
     </>
   );

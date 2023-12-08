@@ -8,6 +8,9 @@ import "swiper/css/navigation";
 import { fetchData } from "../../apis";
 import { Link } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const CarouselSports = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,19 +18,44 @@ const CarouselSports = () => {
     (_) => {
       fetchData("sports", setProducts);
     },
-    [products]
+    []
   );
+
+  if(!products?.length){
+    return( 
+      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+      </div>
+    )
+    }
 
   return (
     <section className="bg-white mx-3 my-4 px-2 p-4">
       <h2 className="text-2xl font-semibold p-3 mb-2 ">
         Shop top picks in Sports{" "}
-        <Link
+        <a
           to="#"
           className="inline-block ml-2 text-sm text-[#67bdcc] font-[600] relative -top-[4px]"
         >
           Explore more
-        </Link>
+        </a>
       </h2>
       <Swiper
         slidesPerView={1}
@@ -66,7 +94,7 @@ const CarouselSports = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={`${product.image}.jpg`}
+                    src={`/${product.image}.jpg`}
                     alt={product.title}
                     className="max-w-[270px] max-h-[200px] "
                   />

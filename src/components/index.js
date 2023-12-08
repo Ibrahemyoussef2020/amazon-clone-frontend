@@ -14,7 +14,23 @@ export { default as CarouselSports } from "./home/CarouselSports";
 export { default as CarouselVisited } from "./home/CarouselVisited";
 
 export { default as ProductDetailsInfo } from "./productDetails/ProductDetailsInfo";
-export { default as ProductPadge } from "./productDetails/ProductPadge";
+export { default as Productbadge } from "./productDetails/Productbadge";
 export { default as ProductRating } from "./productDetails/ProductRating";
 export { default as ProductBuy } from "./productDetails/ProductBuy";
+export {default as ProductDelivery} from "./productDetails/ProductDelivery"
+export {default as ProductDetailsPoster} from "./productDetails/ProductDetailsPoster"
+export {default as ProductSuggestions} from "./productDetails/ProductSuggestions"
 
+
+export {default as InitialAside} from "./layOut/InitialAside";
+export {default as AlterAside} from "./layOut/AlterAside";
+
+export {default as CategoriesAside} from "./selectCategoryResults/CategoryAside";
+export {default as CategoriesNav} from "./selectCategoryResults/CategoryNav";
+export {default as CategoryhandleResults} from "./selectCategoryResults/CategoryhandleResults"
+export {default as CategoryMobileAside} from "./selectCategoryResults/CategoryMobileAside"
+
+export {default as ProductMobileDetails} from "./productDetails/ProductMobileDetails"
+
+export {default as CartMobile} from "./cart/CartMobile"
+export {default as CartPc} from "./cart/CartPc"

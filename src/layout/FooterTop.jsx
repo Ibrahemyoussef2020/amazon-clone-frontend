@@ -133,6 +133,7 @@ const FooterTop = () => {
             <div className="w-[122px] flex items-center gap-2 border-solid border rounded  border-white py-3  px-2  cursor-not-allowed">
               <i className="fa-solid fa-globe"></i>
               <input
+              id="English-navbar"
                 className="bg-inherit focus:outline-none text-xs  max-w-[60px] cursor-not-allowed"
                 disabled
                 value="English"
@@ -143,6 +144,7 @@ const FooterTop = () => {
             <div className="w-[122px] flex items-center gap-2 border-solid border rounded  border-white py-3  px-2  cursor-not-allowed">
               <img src="/images/usa.png" alt="USA" className="h-[15px]" />
               <input
+              id="usa-navbar"
                 className="bg-inherit focus:outline-none text-xs max-w-[47px]  cursor-not-allowed"
                 disabled
                 value="USA"

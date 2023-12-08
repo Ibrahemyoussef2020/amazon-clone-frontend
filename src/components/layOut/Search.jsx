@@ -2,19 +2,18 @@ import React, { useEffect, useState } from "react";
 import {useDispatch , useSelector} from 'react-redux'
 import { Link, useNavigate } from "react-router-dom";
 import { fetchData } from "../../apis";
-import IsObjectIncludes from '../../utilities/IsObjectIncludes'
+import doesObjectInclude from '../../utilities/doesObjectInclude'
 import { toggleSuggegtionsDrop } from "../../redux/slices";
 
 
-const title = 'title',
+/*const title = 'title',
       section = 'searchAllSections',
-      brand  = 'searchAllBrands';
+      brand  = 'searchAllBrands'; */
 
 
-const Search = () => {
+const Search = ({smallScreen}) => {
   const [sug , setSug] = useState('')
   const [sugList,setSugsList] = useState([])
-  const [selectSearchBy , setSelectSearchBy] = useState('')
   const [selectedValue , setSelectedValue] = useState('')
   const [magnifyingGlassColor , setMagnifyingGlassColor] = useState('text-costum-clr_primary')
 
@@ -25,25 +24,23 @@ const Search = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  console.log(suggegtionsFromRedux);
-
   useEffect(()=>{
       fetchData('suggestions' , setSugsList);
-  },[])
+  },[sug])
 
 
   const handleSug  = (e)=>{
-    dispatch(toggleSuggegtionsDrop([...IsObjectIncludes(sugList , e.target.value)]))  
+    dispatch(toggleSuggegtionsDrop([...doesObjectInclude(sugList , e.target.value)]))  
     setSug(e.target.value)
   }
 
 
-  const handleSubmitSelectResults = _=>{
-    if (selectSearchBy !== null &&   selectedValue !== '') {
-      navigate(`search-results/${selectSearchBy}` , {replace:true, state:selectedValue})
+  const handleSubmitSelectResults = e =>{
+    if (e.target.value === '') {
+      navigate('/')
     }
     else{
-      navigate('/')
+      navigate(`/search-results/${selectedValue}`)
     }
      dispatch(toggleSuggegtionsDrop([]))
      setMagnifyingGlassColor('text-costum-clr_primary');
@@ -51,59 +48,57 @@ const Search = () => {
 
 
   const handleSearchTitle = sugResultId => {
-      navigate(`product-details/searchAllTitles/${sugResultId}`)
+      navigate(`/product-details/searchAllTitles/${sugResultId}`)
       dispatch(toggleSuggegtionsDrop([]))
   }
 
   const handleChangeSelectResults = (e)=>{
-    setSelectSearchBy(e.target.options[e.target.selectedIndex].getAttribute('data-searh-by'));
     setSelectedValue(e.target.value)
     setMagnifyingGlassColor('text-green-800 click-on-me');
   }
 
 
-
-
   return (
-    <div className="search relative flex-1 grow mx-3 hidden sm:flex  hover:outline outline-4 outline-orange-300  h-[40px] mt-[7px]   rounded-md">
-      <div className="search__drop w-[80px] bg-[#ccc] cursor-pointer flex items-center">
+    <div className={`search relative flex-1  grow ${ smallScreen ? 'flex' : 'hidden'} ${smallScreen ? 'sm:hidden' : 'sm:flex' } mx-2 justify-between hover:outline outline-4 outline-orange-300  h-[40px] mt-[7px]  rounded-lg`}>
+      <div className="search__drop hidden sm:flex  w-[80px] bg-[#ccc] cursor-pointer items-center">
         <select
           name="search"
-          id="search"
-          className="border-none outline-none px-2 w-[80px]  bg-transparent text-black text-start cursor-pointer text-xs"
+          id="main-select-drop"
+          className="border-none outline-none w-[80px]  bg-transparent text-black text-start cursor-pointer text-xs"
           onChange={e=>handleChangeSelectResults(e)}
         >
-          <optgroup>
-            <option value="" data-searh-by="">All categories</option>
-            <option value="#" disabled>
-              By Section
-            </option>
-            <option value="Devices" data-searh-by={section} >Devices</option>
-            <option value="Pets" data-searh-by={section} >Pets</option>
-            <option value="Sports" data-searh-by={section} >Sports</option>
-            <option value="Beauty" data-searh-by={section} >Beaty</option>
-          </optgroup>
-
-          <optgroup>
-            <option value="#" disabled>
-              By Brand
-            </option>
-            <option value="Poma" data-searh-by={brand}>Poma</option>
-            <option value="Lacoste" data-searh-by={brand} >Lacoste</option>
-            <option value="Toshiba" data-searh-by={brand} >Toshiba</option>      
-            <option value="D-C-R" data-searh-by={brand} >D-C-R</option>
-          </optgroup>
+          <option value=''>All Parts</option>
+          
+            <option value="poma">Poma</option>
+            <option value="lacoste">Lacoste</option>
+            <option value="toshiba">Toshiba</option> 
+            <option value="sharp">sharp</option>     
+            <option value="D_&_C">D-C-R</option>
+            <option value="corn">Corn</option>
+            <option value="black_Roket">Black Roket</option>
+        
+        
+            <option value="products" >Our Products</option>
+            <option value="todays_offers">Todays Offers</option>
+            <option value="pets">Pets Corner</option>
+            <option value="saving_corner">Saving corner</option>
+            <option value="hair_devices">Hair Corner</option>
+            <option value="consider">Consider to</option>
+            <option value="sports">Sports Corner</option>
+        
         </select>
       </div>
 
       <input className="search__input block flex-2 grow bg-white text-sm text-[#000] h-[100%] outline-none pr-0" 
-      
+      id="main-nav-search_"
       value={sug}
       onChange={handleSug}
       onFocus={_=>dispatch(toggleSuggegtionsDrop(sugList))}
       />
 
-      <button onClick={handleSubmitSelectResults} className=" bg-orange-300  border-none outline-none flex items-center  justify-center  px-2 -ml-2">
+      <button onClick={handleSubmitSelectResults}
+      id="handle-selected-items" 
+        className=" bg-orange-300  border-none outline-none flex items-center  justify-center  px-2 -ml-2">
         <i className={`fa-solid fa-magnifying-glass fa-lg ${magnifyingGlassColor}`} ></i>
       </button>
 

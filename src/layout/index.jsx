@@ -5,6 +5,9 @@ import { Outlet } from "react-router";
 import Header from "./Header";
 import FooterTop from "./FooterTop";
 import FooterBottom from "./FooterBottom";
+import Aside from './Aside';
+import Layer from './Layer';
+
 
 
 
@@ -17,8 +20,10 @@ const LayOut = () => {
     }
   }
   return (
-    <div onClick={e=>closeSuggegtionsDrop(e)}>
+    <div onClick={e=>closeSuggegtionsDrop(e)} className='relative'>
+      <Layer />
       <Header />
+      <Aside/>
       <Outlet />
       <footer className="text-white ">
         <FooterTop />

@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -6,10 +5,8 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const CarouselCategory = () => {
-  const filterCategory = (category) => {
-    console.log(category);
-  };
+
+const CarouselCategory = ()=> {
 
   return (
     <section className="bg-white mx-3 my-4 px-2 py-4">
@@ -33,9 +30,9 @@ const CarouselCategory = () => {
         }}
       >
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("all")}>
+          <Link to='/'>
             <img
-              src="images/category_0.jpg"
+              src="/images/category_0.jpg"
               alt="all brands"
               className="block "
             />
@@ -43,21 +40,21 @@ const CarouselCategory = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("devises")}>
-            <img src="images/category_1.jpg" alt="Devices" className="block " />
+          <Link to='/search-results/sports'>
+            <img src="/images/category_1.jpg" alt="Devices" className="block " />
           </Link>
         </SwiperSlide>
 
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("fashion")}>
-            <img src="images/category_2.jpg" alt="Fashion" className="block " />
+          <Link to='/search-results/fashion'>
+            <img src="/images/category_2.jpg" alt="Fashion" className="block " />
           </Link>
         </SwiperSlide>
 
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("computers")}>
+          <Link to="/search-results/computers">
             <img
-              src="images/category_3.jpg"
+              src="/images/category_3.jpg"
               alt="Computer software"
               className="block "
             />
@@ -65,20 +62,20 @@ const CarouselCategory = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("kitchen")}>
+          <Link to='/search-results/appliaces'>
             <img
-              src="images/category_4.jpg"
-              alt="all brands"
+              src="/images/category_4.jpg"
+              alt="kitchen"
               className="block "
             />
           </Link>
         </SwiperSlide>
 
         <SwiperSlide>
-          <Link onClick={(_) => filterCategory("mobile")}>
+          <Link to="/search-results/mobiles">
             <img
-              src="images/category_5.jpg"
-              alt="all brands"
+              src="/images/category_5.jpg"
+              alt="mobiles"
               className="block "
             />
           </Link>

@@ -8,6 +8,9 @@ import "swiper/css/navigation";
 import { fetchData } from "../../apis";
 import { Link } from "react-router-dom";
 
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 const CarouselTodaysOffers = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,8 +18,33 @@ const CarouselTodaysOffers = () => {
     (_) => {
       fetchData("todays_offers", setProducts);
     },
-    [products]
+    []
   );
+
+  if(!products?.length){
+    return( 
+      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+            <Skeleton height={200} width={'100%'}/>
+        </div>
+      </div>
+    )
+    }
 
   return (
     <section className="bg-white mx-3 my-4 px-2 p-4" id="todays-offer">
@@ -33,7 +61,7 @@ const CarouselTodaysOffers = () => {
         slidesPerView={1}
         loop={true}
         navigation={true}
-        spaceBetween={20}
+        spaceBetween={10}
         modules={[Navigation]}
         className="wraper-center"
         breakpoints={{
@@ -57,11 +85,11 @@ const CarouselTodaysOffers = () => {
             className="!h-[350px] min-w-[180px] !flex items-center flex-col	 bg-[#f7f8f8]  py-4"
           >
             <Link
-              to={`product-details/todays_offers/${product.id}`}
+              to={`/product-details/todays_offers/${product.id}`}
               className="block !m-auto"
             >
               <img
-                src={`${product.image}.jpg`}
+                src={`/${product.image}.jpg`}
                 alt={product.title}
                 className="!m-auto max-w-[90%] max-h-[80%]"
               />

@@ -1,7 +1,9 @@
-import React from "react";
+import Login from "./Login";
 
 const ErorrSrc = () => {
-  return <div>ErorrSrc</div>;
+  return <div>
+    <Login />
+  </div>;
 };
 
 export default ErorrSrc;
