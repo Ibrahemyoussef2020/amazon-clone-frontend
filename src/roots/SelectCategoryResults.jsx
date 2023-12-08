@@ -15,7 +15,6 @@ let filterList = [];
 const SelectCategoryResults = () => {
   const [products, setProducts] = useState([]);
   const [constantProducts, setConstantProducts] = useState([])
-  //  const [selectedProducts,setSelectedProducts] = useState([]);
   const [productsColor, setProductsColor] = useState([])
   const [productsBrand, setProductsBrand] = useState([])
   const [productsType, setProductsType] = useState([])
@@ -29,29 +28,12 @@ const SelectCategoryResults = () => {
 
   const location = useLocation()
    const { selectedValue } = useParams();
-  //// const selectedValue = location.state;
-  //// const category = searchType === 'searchAllBrands' ? 'brand' : 'section';
 
   useEffect(async => {
     fetchData(selectedValue, setProducts);
     fetchData(selectedValue, setConstantProducts);
-/*
-    const colors = new Set(constantProducts.map(product => product.color))
-    setProductsColor([...colors])
-
-    const brands = new Set(constantProducts.map(product => product.brand))
-    setProductsBrand([...brands])
-
-    const types = new Set(constantProducts.map(product => product.type))
-    setProductsType([...types])
-*/    
 
   }, [selectedValue]);
-
-
-  //// const selectedProducts = products?.filter(product => selectedValue !== '' ? product[category]?.toLowerCase() === selectedValue?.toLowerCase() : product);
-  //// const selectedConstantProducts = constantProducts?.filter(product => selectedValue !== '' ? product[category]?.toLowerCase() === selectedValue?.toLowerCase() : product);
-
 
 
   const reSortLists = (e, hierarchy, prop, letterly = false) => {

@@ -16,7 +16,6 @@ const HeaderTop = () => {
 
   },[isLogged])
 
-  console.log(isLogged);
 
   const handleLogOut = ()=>{
       dispatch(logOut())
