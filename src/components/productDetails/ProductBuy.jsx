@@ -16,7 +16,6 @@ const ProductBuy = ({product , setProduct , deliveryPrice}) => {
 
   },[quantity])
 
-  console.log(quantity);
 
   const handleQuantity = (e)=>{
     SetQuantity(e.target.value);

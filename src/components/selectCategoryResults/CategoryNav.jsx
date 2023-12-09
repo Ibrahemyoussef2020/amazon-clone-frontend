@@ -24,31 +24,32 @@ const CategoriesNav = ({selectedValue , fromMethod = 'categories'}) => {
     <>
       <ul className="hidden lg:flex !flex-nowrap bg-[#fafafa]">
       {
-        suggestions.length && suggestions
+        suggestions.length ? suggestions
         .filter(suggestion => suggestion.includes(selectedValue) )
         .map(suggestion => {
           const visibleSuggestion = suggestion.split('_').join(' ');
 
           return <li key={suggestion} className={`relative  font-medium border-solid ${fromMethod === 'categories' ? 'border-[#f90]  border-b-2' : ''} top-[1px] text-[#333] hover:text[#e47911] hover:border-b-2 hover:border-solid hover:border-[#f90] text-[13px]`}>
             <Link to={`/search-results/${suggestion.split(' ')[0]}`} className="block py-1 px-2 lg:px-3 leading-8">
-                  {visibleSuggestion[0].toUpperCase()}{visibleSuggestion.slice(1)}
+                  {visibleSuggestion[0]?.toUpperCase()}{visibleSuggestion.slice(1)}
             </Link>
           </li>
         })
-      }
+     : null }
       {
-        suggestions.length && suggestions
+        suggestions.length ? suggestions
         .filter(suggestion => !suggestion.includes(selectedValue) )
         .map(suggestion => {
           const visibleSuggestion = suggestion.split('_').join(' ');
 
+
           return <li key={suggestion} className={`relative top-[1px] text-[#333] hover:text[#e47911] hover:border-b-2 hover:border-solid hover:border-[#f90] text-[13px]`}>
             <Link to={`/search-results/${suggestion.split(' ')[0]}`} className="block py-1 px-2 lg:px-3 leading-8">
-                  {visibleSuggestion[0].toUpperCase()}{visibleSuggestion.slice(1)}
+            {visibleSuggestion[0]?.toUpperCase()}{visibleSuggestion.slice(1)}
             </Link>
           </li>
         })
-      }
+     : null }
     </ul>
 
 

@@ -7,19 +7,30 @@ import {
 } from '../../utilities/sortLists'
 
 import { catchCtaegoryDesc } from "../../utilities"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
 
 let multipleStrings = [];
 
-const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantList , setProducts}) => {
+const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantList , setProducts , pcClear , setPcClear}) => {
 
   const [productsColor, setProductsColor] = useState([])
   const [productsBrand, setProductsBrand] = useState([])
   const [productsType, setProductsType] = useState([])
 
   const [selectedType,setSelectedType] = useState('')
+
+  const ref_premium_offer = useRef()
+  const ref_free_delivery = useRef()
+  const ref_to_home = useRef()
+
+  const ref_typeEls = useRef([])
+  const ref_ratingEls = useRef([])
+  const ref_brandEls = useRef([])
+  const ref_colorEls = useRef([])
+  
+
 
   useEffect(()=>{
     const colors = new Set(constantList.map(product => product.color))
@@ -30,7 +41,10 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
 
     const types = new Set(constantList.map(product => product.type))
     setProductsType([...types])
-  },[selectedValue,constantList,multipleStrings])
+
+    setTimeout(()=> handleClearFilters(),0)
+
+  },[selectedValue,constantList,multipleStrings,pcClear])
 
 
     const handleBooleanValues = (e) => {
@@ -40,9 +54,11 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
         type: 'boolean',
         filterFn:(product,filter) => product[e.target.name] === filter.checked
       }, e.target.checked)
+
+      setPcClear(false)
     }
 
-    const handleNumberValues = (e) => {
+    const handleRadioValues = (e) => {
       
       if (e.target.name === 'type') {
         setSelectedType(e.target.value)
@@ -57,6 +73,8 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
         type: 'custom',
         filterFn: (item) => isNumber ? item[e.target.name] >= e.target.value : item[e.target.name] === e.target.value ,
       }, true)
+
+      setPcClear(false)
     }
 
 
@@ -77,25 +95,72 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
             values: multipleStrings,
             filterFn:(product,filter) => filter.values.includes(product[e.target.name]),
         } , e.target.checked)
+
+        setPcClear(false)
   }
 
+
+
   const handleRemoveFilter = (filter)=>{
+        if (filter === 'premium_offer') {
+          ref_premium_offer.current.checked = false; 
+        }
+        else if (filter === 'free_delivery') {
+          ref_free_delivery.current.checked = false; 
+        }
+        else if (filter === 'to_home') {
+          ref_to_home.current.checked = false; 
+        }
+        else {
+
+        const curentRef = filter === 'type' ?  ref_typeEls
+        : filter === 'avgRating' ? ref_ratingEls
+        : filter === 'brand' ? ref_brandEls
+        : filter === 'color' ? ref_colorEls
+        : null
+
+        if (curentRef) { 
+            curentRef.current.map(ref => ref.checked = false)
+        }
+        setPcClear(false)
+    }
+
     handleFilter({
       prop:filter,
       checked:true,
       type: 'remove-filter',
       value:null,
     } , true)
+
+    setPcClear(false)
   }
 
-  const handleClearFilters = ()=>{
-    handleFilter({
-      prop:null,
-      checked:true,
-      type: 'clear',
-      value: null,
-    } , true)
+  function handleClearFilters(){
+    if (pcClear) {
+      ref_premium_offer.current.checked = false;
+      ref_free_delivery.current.checked = false;
+      ref_to_home.current.checked = false;
+
+      console.log(ref_typeEls.current);
+      
+      ref_typeEls.current.filter(ref => ref !== null)
+      .map(ref => ref.checked = false)
+      ref_ratingEls.current.filter(ref => ref !== null)
+      .map(ref => ref.checked = false)
+      ref_brandEls.current.filter(ref => ref !== null)
+      .map(ref => ref.checked = false)
+      ref_colorEls.current.filter(ref => ref !== null)
+      .map(ref => ref.checked = false)
+
+      handleFilter({
+        prop:null,
+        checked:true,
+        type: 'clear',
+        value: null,
+      } , true)
+    }
   }
+
 
 
  
@@ -115,6 +180,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
             id="premium_offer"
             name="premium_offer"
             value="premium_offer"
+            ref={ref_premium_offer}
           />
           <span className={`ml-2 mr-1`}>
             <img src="/images/amazone-small-arrow.png" alt=""  className="w-[15px] h-[10px] -mb-2"/>
@@ -138,6 +204,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
             id="free_delivery"
             name="free_delivery"
             value="free_delivery"
+            ref={ref_free_delivery}
           />
           <span className={`label__sub-title ml-2`}>
             Free delivery
@@ -152,7 +219,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
 
       <div className="mb-5">
         <h2 className=" font-semibold ">Delivery Home</h2>
-        <button className="clear pt-1">
+        <button className="clear pt-1"  onClick={_=> handleRemoveFilter('to_home')}>
           <i className="fa-solid fa-angle-left"></i> <span>Clear</span> 
         </button>
         <label>
@@ -162,6 +229,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
             id="to_home"
             name="to_home"
             value="to_home"
+            ref={ref_to_home}
           />
           <span className={`label__sub-title ml-2`}>
             Git it to Home
@@ -190,11 +258,12 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
         .map((type,index) => 
             <label key={type +''+ index} className="block no-check-shape pl-3">
               <input
-                onChange={handleNumberValues} 
+                onChange={handleRadioValues} 
                 type="radio" 
                 name="type" 
                 value={type}
                 data-values={multipleStrings}
+                ref={(el) => (ref_typeEls.current[index] = el)}
                 />
               <span>{selectedValue.slice(0,-1)} a {type}</span>
             </label>
@@ -223,92 +292,97 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
         </button>
         <label className="flex no-check-shape mb-3">
           <input
-            onChange={handleNumberValues}
+            onChange={handleRadioValues}
             type="radio"
             id="equal-bigger-5"
             name="avgRating"
             value="5"
+            ref={(el) => (ref_brandEls.current[5] = el)}
           />
-          <div>
+          <span>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
-          </div>
+          </span>
           <span className=" ml-2  a-size-small"> Only</span>
         </label>
 
 
         <label className="flex no-check-shape mb-3">
           <input
-            onChange={handleNumberValues}
+            onChange={handleRadioValues}
             type="radio"
             id="equal-bigger-4"
             name="avgRating"
             value="4"
+            ref={(el) => (ref_brandEls.current[4] = el)}
           />
-          <div> 
+          <span> 
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-          </div>
+          </span>
           <span className=" ml-2  a-size-small">& Up</span>
         </label>
 
         <label className="flex no-check-shape mb-3">
           <input
-            onChange={handleNumberValues}
+            onChange={handleRadioValues}
             type="radio"
             id="equal-bigger-3"
             name="avgRating"
             value="3"
+            ref={(el) => (ref_brandEls.current[3] = el)}
           />
-          <div> 
+          <span> 
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-          </div>
+          </span>
           <span className=" ml-2  a-size-small">& Up</span>
         </label>
 
         <label className="flex no-check-shape mb-3">
           <input
-            onChange={handleNumberValues}
+            onChange={handleRadioValues}
             type="radio"
             id="equal-bigger-2"
             name="avgRating"
             value="2"
+            ref={(el) => (ref_brandEls.current[2] = el)}
           />
-          <div> 
+          <span> 
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-          </div>
+          </span>
           <span className=" ml-2  a-size-small">& Up</span>
         </label>
 
         <label className="flex no-check-shape mb-3">
           <input
-            onChange={handleNumberValues}
+            onChange={handleRadioValues}
             type="radio"
             id="equal-bigger-1"
             name="avgRating"
             value="1"
+            ref={(el) => (ref_brandEls.current[1] = el)}
           />
-          <div> 
+          <span> 
             <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
             <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-          </div>
+          </span>
           <span className=" ml-2  a-size-small">& Up</span>
         </label>
 
@@ -332,6 +406,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
                 name="brand" 
                 value={brand}
                 data-values={multipleStrings}
+                ref={(el) => (ref_brandEls.current[index] = el)}
                 />
               <span>{brand[0].toUpperCase()}{brand.slice(1)}</span>
             </label>
@@ -355,10 +430,11 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
         .map((color,index) =>{
               return <label key={color + ''+ index} className={` relative inline-block w-[24px] h-[21px] rounded  hover:outline outline-[1px] outline-blue-400 no-check-shape pl-3 border-solid border-[1px] border-[#ccc]`} style={{background:color}}>
               <input
-                onChange={handleNumberValues} 
+                onChange={handleRadioValues} 
                 type="radio" 
                 name="color" 
                 value={color}
+                ref={(el) => (ref_colorEls.current[index] = el)}
                 />
               <i className={`selected-color fa-solid fa-check ${color === '#fff' || color === 'white' ? 'text-slate-500' : 'text-white'} absolute bottom-0 right-1`}></i>
             </label>
@@ -376,23 +452,3 @@ export default CategoriesAside
 
 
 
-  /*const handleBooleanValues = (e)=>{
-    
-    handleFilter({
-      type:'boolean',
-      checked:e.target.checked,
-      prop:e.target.name,
-      filterFn:(product,filter) => product[filter.prop] === filter.checked
-    })
-  }*/
-
-  /*const handleNumberValues = (e)=>{
-    handleFilter({
-      type:'costum',
-      checked:e.target.checked,
-      prop:e.target.name,
-      value:e.target.value,
-      //filterFn:(product,filter)=> product[e.target.name] >= filter.value
-      filterFn: (item) => item['avgRating'] >= e.target.value,
-    })
-  } */

@@ -24,6 +24,7 @@ const SelectCategoryResults = () => {
   const [isSelectParentClicked,setIsSelectParentClicked] = useState(true)
   const [isMobileFilterOppen, setIsMobileFilterOppen] = useState(false)
   const [clear,setClear] = useState(false)
+  const [pcClear,setPcClear] = useState(false)
  
 
   const location = useLocation()
@@ -42,7 +43,7 @@ const SelectCategoryResults = () => {
     sortLists(hierarchy, prop, products, letterly)
   }
 
-  /******************************** */
+  /**************  start handle filter ****************** */
 
  
 
@@ -50,11 +51,9 @@ const SelectCategoryResults = () => {
     
     let newFilterList = filterList;
 
-    console.log(filterList);
-
     if (filterData.type === 'clear') {
-
-      const modifiedProducts = filterProductsList([], constantProducts );
+      filterList = [];
+      const modifiedProducts = filterProductsList(filterList, constantProducts );
       setProducts(modifiedProducts);
 
       return true
@@ -104,8 +103,16 @@ const SelectCategoryResults = () => {
     const modifiedProducts = filterProductsList(newFilterList, constantProducts , numberDependences);
     
     setProducts(modifiedProducts);
+    setPcClear(false)
+
+   
+    console.log(newFilterList);
 
   }
+
+  /************************  end handle filter ************************ */
+
+
 
   const handleClearFilters = ()=>{
     handleFilter({
@@ -116,7 +123,28 @@ const SelectCategoryResults = () => {
     } , true)
   }
 
-  /*********************************** */
+  if (!products?.length && !constantProducts?.length ) {
+   return <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
+    <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+     <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+     <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+     <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+     <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+     <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
+         <Skeleton height={200} width={'100%'}/>
+     </div>
+   </div>
+  }
 
 
   return (
@@ -142,7 +170,8 @@ const SelectCategoryResults = () => {
           selectedValue={selectedValue}
           constantList={constantProducts}
           setProducts={setProducts}
-
+          pcClear={pcClear}
+          setPcClear={setPcClear}
         />
 
         <CategoryMobileAside
@@ -170,7 +199,7 @@ const SelectCategoryResults = () => {
               <div className="lg:pb-4">
                   <h2 className="text-2xl lg:text-3xl !font-semibold mb-2">No results according to your search</h2>
 
-                  <button className="pt-1 pl-3 mb-4 text-xl lg:text-2xl" onClick={handleClearFilters}>
+                  <button className="pt-1 pl-3 mb-4 text-xl lg:text-2xl" onClick={_=>setPcClear(true)}>
                     <i className="fa-solid fa-angle-left text-lg lg:text-xl"></i> <span>Clear All Filters</span> 
                   </button>
 
@@ -203,28 +232,7 @@ const SelectCategoryResults = () => {
           </div>
       </section>
 
-      : !products?.length && !constantProducts?.length ?
-
-      <div className={`row text-center bg-inhrit`} style={{overflowX:'hidden'}}>
-       <div className='Skeleton-container sm:col-span-6 md:col-span-4  my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-        <div className='Skeleton-container sm:col-span-6 md:col-span-4 my-1 text-center bg-inhrit'>
-            <Skeleton height={200} width={'100%'}/>
-        </div>
-      </div>
+      
       :
             products
               .map(product =>

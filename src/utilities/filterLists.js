@@ -5,9 +5,11 @@ export const filterProductsList = (filters, list , checkValuesLength = 1) => {
       let filterdList = list;
 
       if (!filters.length) {
-
+            console.log(list);
             return list
-      }
+      }else{
+
+      
 
 
       filters.forEach(filter => {
@@ -26,11 +28,16 @@ export const filterProductsList = (filters, list , checkValuesLength = 1) => {
                         filterdList = filterdList.filter(product => filter.filterFn(product,filter))
                         break;
                   }
+                  case 'clear': {
+                       // filterdList = filterdList.filter(product => filter.filterFn(product,filter))
+                        break;
+                  }
                   default:
                         break;
             }
       });
 
+}
 
       return filterdList
 }

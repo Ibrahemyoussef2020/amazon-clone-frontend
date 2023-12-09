@@ -507,6 +507,18 @@ label:has(input:checked) .selected-color{
 
 /****************** skeleton ****************/
 
+.Skeleton-container{
+  flex:1;
+}
+.Skeleton-container span{
+  display: block;
+}
+li .Skeleton-container{
+  min-height:50px;
+}
+li .Skeleton-container span{
+  min-height: 25px;
+}
 
 
 /************* animations ***************/

@@ -36,10 +36,6 @@ const handleByProcess = ()=>{
     navigate('/orders')
 }
 
-console.log(purchases);
-
-
-  
 
   return (
     <section className="pc-cart grid grid-cols-12 p-6 gap-5 !justify-between bg-[#EAEDED]">

@@ -73,6 +73,8 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
           if(e.target.getAttribute('data-type') === 'clear'){
             setClear(true)
             searchedProduct  = constantList;
+            console.log('hhh');
+            return true
           }
           else{
             setClear(false)
@@ -123,6 +125,7 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
         function handleClose(){
           setIsMobileFilterOppen(false)
           setClear(true)
+          setProducts(constantList)
         }
 
 
@@ -217,7 +220,6 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                                   name="mobile-filter"
                                   data-name ='brand' 
                                   value={sug}
-                                // data-values={multipleStrings}
                                   />
                               <span>{sug[0].toUpperCase()}{sug.slice(1)}</span>
                           </label>
@@ -230,7 +232,6 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                               name="search"
                               data-name ='type' 
                               value={sug}
-                            // data-values={multipleStrings}
                               />
                           <span>{sug}</span>
                           </label> 
@@ -311,13 +312,13 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                 data-name="avgRating"
                 value="5"
               />
-              <div>
+              <span>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
-              </div>
+              </span>
               <span className=" ml-2  a-size-small"> Only</span>
             </label>
 
@@ -332,13 +333,13 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                 data-name="avgRating"
                 value="4"
               />
-              <div> 
+              <span> 
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-              </div>
+              </span>
               <span className=" ml-2  a-size-small">& Up</span>
             </label>
 
@@ -352,13 +353,13 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                 data-name="avgRating"
                 value="3"
               />
-              <div> 
+              <span> 
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-              </div>
+              </span>
               <span className=" ml-2  a-size-small">& Up</span>
             </label>
 
@@ -372,13 +373,13 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                 data-name="avgRating"
                 value="2"
               />
-              <div> 
+              <span> 
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-              </div>
+              </span>
               <span className=" ml-2  a-size-small">& Up</span>
             </label>
 
@@ -392,13 +393,13 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
                 data-name="avgRating"
                 value="1"
               />
-              <div> 
+              <span> 
                 <i className="fa-solid fa-star fa-lg  text-[#ffa41c]"></i>
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
                 <i className="fa-regular fa-star fa-lg text-[#ffa41c]"></i> 
-              </div>
+              </span>
               <span className=" ml-2  a-size-small">& Up</span>
             </label>
           </div>          
