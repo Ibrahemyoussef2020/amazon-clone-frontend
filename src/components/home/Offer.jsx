@@ -1,6 +1,6 @@
 import React from "react";
 
-const Offer = ({ offer }) => {
+const Offer = ({ offer }) => { 
   
   return (
     <article className={`${offer.classes} max-w-[400px] md:min-h-[350px]  bg-white z-30 m-3 md:p-4 p-[2px] cursor-not-allowed overflow-hidden`}>
