@@ -159,20 +159,20 @@ const Orders = () => {
                     <span className="text-lg font-semibold whitespace-nowrap flex-1 ">{product.orderDate}</span>
                   </div>
 
-                  <div className="flex mb-1  gap-1 max-w-[400px] !leading-7">
+                  <div className="flex mb-1  gap-1 max-w-[400px] !leading-9">
                     <h3 className="text-lg whitespace-nowrap ">Receipt date: </h3>
                     <p className="text-lg ">
                     The expected time to receipt your order will be any time between 
-                    <span className="mx-2 font-semibold text-lg">{product.receivedDateStart}</span> && 
-                    <span className="mx-2 font-semibold text-lg">{product.receivedDateEnd}</span> 
+                    <span className="mx-2 font-semibold !text-lg">{product.receivedDateStart}</span> && 
+                    <span className="mx-2 font-semibold !text-lg">{product.receivedDateEnd}</span> 
                     </p>
                   </div>            
                   
                 </div>
 
                 <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%] !pt-6  text-lg ">
-                      <p className="mb-2 md:mt-0">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
-                      <p className="mb-2 !leading-7">{product.description}</p>                     
+                      <p className="mb-2 md:mt-0 !text-lg">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
+                      <p className="mb-2 !leading-9 !text-lg">{product.description}</p>                     
 
                       <div className="pt-4">
                     { product.premium_offer ? 
@@ -202,7 +202,7 @@ const Orders = () => {
                         {<Productbadge badge={product.badge} />}
                       </div>
 
-                      <div className="text-[#555] text-[13px] flex !flex-nowrap gap-2 mt-2 mb-4 leading-6 text-center">
+                      <div className="text-[#555] w-full !text-[13px] flex !flex-nowrap gap-2 mt-2 mb-4 leading-6 text-center">
                       {product.ratings.toString().slice(0,3)}+ bought in past month
                       </div>
 
