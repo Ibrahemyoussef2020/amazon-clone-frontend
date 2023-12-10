@@ -1,6 +1,6 @@
 const compeletPriceSerial = (number) => {
     const originalLength = 2;
-    const length =  (number).toString().length
+    const length =  number.toString().length
     for (let index = 0; index <= originalLength ; index++) {     
         number = `${number}`   
         if (index === originalLength) {

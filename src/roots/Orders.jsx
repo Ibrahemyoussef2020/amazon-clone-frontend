@@ -159,9 +159,9 @@ const Orders = () => {
                     <span className="text-lg font-semibold whitespace-nowrap flex-1 ">{product.orderDate}</span>
                   </div>
 
-                  <div className="flex mb-1  gap-1 max-w-[400px] !leading-9">
+                  <div className="flex mb-1  gap-1 max-w-[400px] ">
                     <h3 className="text-lg whitespace-nowrap ">Receipt date: </h3>
-                    <p className="text-lg ">
+                    <p className="!text-lg ">
                     The expected time to receipt your order will be any time between 
                     <span className="mx-2 font-semibold !text-lg">{product.receivedDateStart}</span> && 
                     <span className="mx-2 font-semibold !text-lg">{product.receivedDateEnd}</span> 
@@ -170,11 +170,11 @@ const Orders = () => {
                   
                 </div>
 
-                <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%] !pt-6  text-lg ">
+                <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%]  !text-lg ">
                       <p className="mb-2 md:mt-0 !text-lg">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
-                      <p className="mb-2 !leading-9 !text-lg">{product.description}</p>                     
+                      <p className="mb-2  !text-lg">{product.description.slice(0,50)}</p>                     
 
-                      <div className="pt-4">
+                      <div className="">
                     { product.premium_offer ? 
                       <p className=" mb-0">                     
                         <i className="fa-solid fa-check text-[#feac03] font-extrabold"></i>
@@ -187,9 +187,9 @@ const Orders = () => {
                       <span className="block font-bold text-[#0F1111]">tomorrow, 23 Nov</span>
                     </p>
                       
-                      {product.free_delivery ? <span className="mt-2 text-lg  text-[#0F1111] inline-block">Fulfilled by Amazon - FREE Shipping</span>
+                      {product.free_delivery ? <span className="mt-2 !text-lg text-[#0F1111] inline-block">Fulfilled by Amazon - FREE Shipping</span>
                       
-                      : <span className="mt-2  text-[#0F1111] text-lg inline-block">Fulfilled by Clients - Price and  Delivery</span> 
+                      : <span className="mt-2  text-[#0F1111] !text-lg inline-block">Fulfilled by Clients - Price and  Delivery</span> 
                       }
                     
                   </div>    
@@ -205,7 +205,6 @@ const Orders = () => {
                       <div className="text-[#555] w-full !text-[13px] flex !flex-nowrap gap-2 mt-2 mb-4 leading-6 text-center">
                       {product.ratings.toString().slice(0,3)}+ bought in past month
                       </div>
-
                 </div>          
               </article>
             )
