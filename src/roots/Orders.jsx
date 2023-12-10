@@ -116,7 +116,7 @@ const Orders = () => {
           purchases
             .map(product =>
 
-              <article className="text-sm xl:text-md my-4 pt-5 flex md:bg-red-500  items-center border-t-[30px] border-solid border-[#eee] text-[#0F1111]  font-medium w-full" key={product?.id}>
+              <article className="text-sm xl:text-md my-4 pt-5 flex sm:bg-green-500 md:bg-red-500  items-center border-t-[30px] border-solid border-[#eee] text-[#0F1111]  font-medium w-full" key={product?.id}>
                 <div className="w-full lg:w-[33%] p-4">
                   <div className="mx-auto  mt-4 sm:mx-0 p-4 flex items-center justify-center sm:justify-start sm:border lg:border-none border-solid border-[#eee] text-[#0F1111]">
                     <img className="max-h-[300px]  w-[100%] max-w-[300px]" src={`/${product?.image}.jpg`} alt="d" />
