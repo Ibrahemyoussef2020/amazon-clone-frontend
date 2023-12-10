@@ -119,7 +119,7 @@ const Orders = () => {
               <article className="text-sm xl:text-md my-4 pt-5 flex   items-center border-t-[30px] border-solid border-[#eee] text-[#0F1111]  font-medium w-full" key={product?.id}>
                 <div className="w-full lg:w-[33%] p-4">
                   <div className="mx-auto  mt-4 sm:mx-0 p-4 flex items-center justify-center sm:justify-start sm:border lg:border-none border-solid border-[#eee] text-[#0F1111]">
-                    <img className="max-h-[300px]  w-[100%] max-w-[300px]" src={`/${product?.image}.jpg`} alt="d" />
+                    <img className="max-h-[300px] w-[100%] max-w-[300px]" src={`/${product?.image}.jpg`} alt="d" />
                   </div>
                 </div>
 
@@ -136,32 +136,32 @@ const Orders = () => {
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg flex-1  whitespace-nowrap ">Item Price: </h3>
-                    <span className="text-lg flex-1 text-[14px] font-semibold">{product.price}</span>
+                    <span className="flex-1 text-[14px] font-semibold">{product.price}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg flex-1  whitespace-nowrap ">Item Count: </h3>
-                    <span className="text-lg flex-1 text-[14px] font-semibold">{product.quantity}</span>
+                    <span className="flex-1 text-[14px] font-semibold">{product.quantity}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg flex-1  whitespace-nowrap ">total price: </h3>
-                    <span className="text-lg flex-1 text-[14px] font-semibold">{product.total}</span>
+                    <span className="flex-1 text-[14px] font-semibold">{product.total}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg flex-1  whitespace-nowrap ">payment method: </h3>
-                    <span className="text-lg flex-1 font-semibold !text-[14px]">Upon receipt</span>
+                    <span className="flex-1 font-semibold !text-[14px]">Upon receipt</span>
                   </div>
 
-                  <div className="flex mb-1  gap-1 bg-green-50 sm:bg-red-500 ">
-                    <h3 className="text-lg flex-1  whitespace-nowrap bg-gray-500 ">Request date: </h3>
-                    <span className="text-lg flex-1 text-[14px] font-semibold bg-emerald-500">{product.orderDate}</span>
+                  <div className="flex mb-1  gap-1">
+                    <h3 className="text-lg flex-1  whitespace-nowrap ">Request date: </h3>
+                    <span className="flex-1 text-[14px] font-semibold">{product.orderDate}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 max-w-[400px] ">
-                    <h3 className="text-lg flex-1  whitespace-nowrap ">Receipt date: </h3>
-                    <p className="text-lg flex-1">
+                    <h3 className="text-lg whitespace-nowrap ">Receipt date: </h3>
+                    <p className="text-lg">
                     The expected time to receipt your order will be any time between 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateStart}</span> && 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateEnd}</span> 
