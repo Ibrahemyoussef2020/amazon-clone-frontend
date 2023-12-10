@@ -131,37 +131,37 @@ const Orders = () => {
 
                   <div className="flex  mb-1 text-lg gap-1">
                   <h3 className="text-lg whitespace-nowrap">Product Rating: </h3> 
-                    <span className="font-semibold !text-[14px] pt-1">{product.avgRating}</span>
+                    <span className="font-semibold whitespace-nowrap flex-1 !text-[14px] pt-1">{product.avgRating}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg whitespace-nowrap ">Item Price: </h3>
-                    <span className="text-[14px] font-semibold  pt-1">{product.price}</span>
+                    <span className="text-[14px] font-semibold  whitespace-nowrap flex-1 pt-1">{product.price}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg whitespace-nowrap ">Item Count: </h3>
-                    <span className="text-[14px] font-semibold pt-1">{product.quantity}</span>
+                    <span className="text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.quantity}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg  whitespace-nowrap ">total price: </h3>
-                    <span className=" text-[14px] font-semibold pt-1">{product.total}</span>
+                    <span className=" text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.total}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg   whitespace-nowrap ">payment method: </h3>
-                    <span className=" font-semibold !text-[14px] pt-1">Upon receipt</span>
+                    <span className=" font-semibold !text-[14px] whitespace-nowrap flex-1 pt-1">Upon receipt</span>
                   </div>
 
-                  <div className="flex mb-1  gap-1">
+                  <div className="flex  mb-1  gap-1">
                     <h3 className="text-lg whitespace-nowrap ">Request date: </h3>
-                    <span className="text-[14px] font-semibold pt-1">{product.orderDate}</span>
+                    <span className="text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.orderDate}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 max-w-[400px] !leading-7">
                     <h3 className="text-lg whitespace-nowrap ">Receipt date: </h3>
-                    <p className="text-[14px] pt-1">
+                    <p className="text-[14px] pt-1 flex-1">
                     The expected time to receipt your order will be any time between 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateStart}</span> && 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateEnd}</span> 
@@ -202,7 +202,7 @@ const Orders = () => {
                         {<Productbadge badge={product.badge} />}
                       </div>
 
-                      <div className="text-[#555] text-[14px] flex gap-2 mt-2 mb-4 leading-6 text-center">
+                      <div className="text-[#555] text-[13px] flex gap-2 mt-2 mb-4 leading-6 text-center">
                       {product.ratings.toString().slice(0,3)}+ bought in past month
                       </div>
 
