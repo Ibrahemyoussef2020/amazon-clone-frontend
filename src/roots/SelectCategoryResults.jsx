@@ -239,7 +239,7 @@ const SelectCategoryResults = () => {
 
                 <article className="text-sm xl:text-md flex !flex-nowrap  sm:flex-col  max-w-[100%] sm:max-w-[210px] md:max-w-[230px] lg:max-w-[240px] xl:max-w-[260px] mb-8 border border-solid border-[#eee] text-[#0F1111]  font-medium" key={product?.id}>
                   <div className="mx-auto bg-[#efefef]  flex items-center justify-center p-4 sm:p-8 h-[300px] sm:h-[270px]  w-[100%]">
-                    <img className="max-h-[100%] max-w-[100%] min-h-[200px]" src={`/${product?.image}.jpg`} alt="d" />
+                    <img className="max-h-[100%] max-w-[100%] min-h-[150px]" src={`/${product?.image}.jpg`} alt="d" />
                   </div>
 
                   <div className="py-2 px-4">

@@ -5,6 +5,7 @@ import { compeletPriceSerial } from "../utilities";
 
 const Orders = () => {
   const {purchases} = useSelector(state => state.cart)
+  const {isLogged}  = useSelector(state => state.log)
 
 
   if (!purchases.length) {
@@ -61,7 +62,7 @@ const Orders = () => {
   return (
     <div className="relative">
 
-      <section className="bg-white flex !flex-nowrap gap-3 py-4 pl-1 border-t-[30px] border-solid border-[#eee]">
+     { isLogged ? <section className="bg-white flex !flex-nowrap gap-3 py-4 pl-1 border-t-[30px] border-solid border-[#eee]">
         <div className="p-8 bg-slate-100 h-[100%]">
         <i className="fa-regular fa-user text-6xl"></i>
         </div>
@@ -108,14 +109,10 @@ const Orders = () => {
             </div>
           </div>        
         </div>
-      </section>
+      </section> : null}
     
       <div className={`flex flex-1 justify-between flex-wrap items-start`}>
-        {!purchases?.length
-
-          ? <h2>No Items ...</h2>
-
-          :
+        {
           purchases
             .map(product =>
 
@@ -126,45 +123,45 @@ const Orders = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 sm:pt-12 px-4 w-full sm:w-[45%] lg:w-[35%]">
-                  <div className="flex gap-2 mb-1 ">
-                    <h3 className="text-lg">Product Title:</h3>
-                    <p className="-plus font-semibold !text-[14px] text-[#0F1111] m-0 max-w-[90%] whitespace-nowrap overflow-hidden">{product.title}</p>
+                <div className="pt-4 sm:pt-12 px-4 w-full md:w-[45%] lg:w-[35%]">
+                  <div className="flex mb-1  gap-1">
+                    <h3 className="text-lg">Product Title: </h3>
+                    <p className="font-semibold !text-[14px] text-[#0F1111] pt-1 max-w-[90%] whitespace-nowrap overflow-hidden">{product.title[0]?.toUpperCase()}{product.title.slice(1)}</p>
                   </div>
 
-                  <div className="flex gap-2 mb-1 text-lg">
-                  <h3 className="text-lg">Product Rating:</h3> 
+                  <div className="flex  mb-1 text-lg gap-1">
+                  <h3 className="text-lg">Product Rating: </h3> 
                     <span className="font-semibold !text-[14px]">{product.avgRating}</span>
                   </div>
 
-                  <div className="flex mb-1  ">
-                    <h3 className="text-lg ">Item Price:</h3>
-                    <span className="text-lg ml-1 text-[14px] font-semibold">{product.price}</span>
+                  <div className="flex mb-1  gap-1 ">
+                    <h3 className="text-lg ">Item Price: </h3>
+                    <span className="text-lg text-[14px] font-semibold">{product.price}</span>
                   </div>
 
-                  <div className="flex mb-1  ">
+                  <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg ">Item Count: </h3>
-                    <span className="text-lg ml-1 text-[14px] font-semibold">{product.quantity}</span>
+                    <span className="text-lg text-[14px] font-semibold">{product.quantity}</span>
                   </div>
 
-                  <div className="flex mb-1  ">
+                  <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg ">total price: </h3>
-                    <span className="text-lg ml-1 text-[14px] font-semibold">{product.total}</span>
+                    <span className="text-lg text-[14px] font-semibold">{product.total}</span>
                   </div>
 
-                  <div className="flex mb-1  ">
+                  <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg ">payment method: </h3>
-                    <span className="text-lg ml-1 font-semibold !text-[14px]">Upon receipt</span>
+                    <span className="text-lg font-semibold !text-[14px]">Upon receipt</span>
                   </div>
 
-                  <div className="flex mb-1 ">
+                  <div className="flex mb-1  gap-1">
                     <h3 className="text-lg ">Request date: </h3>
-                    <span className="text-lg ml-1 text-[14px] font-semibold">{product.orderDate}</span>
+                    <span className="text-lg text-[14px] font-semibold">{product.orderDate}</span>
                   </div>
 
-                  <div className="flex mb-1  ">
+                  <div className="flex mb-1  gap-1 max-w-[400px] ">
                     <h3 className="text-lg ">Receipt date: </h3>
-                    <p className="text-lg ml-1">
+                    <p className="text-lg">
                     The expected time to receipt your order will be any time between 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateStart}</span> && 
                     <span className="mx-2 font-semibold text-[14px]">{product.receivedDateEnd}</span> 
@@ -173,7 +170,7 @@ const Orders = () => {
                   
                 </div>
 
-                <div className="p-4 font-semibold w-full sm:w-[55%] sm:pl-16 lg:w-[32%] pt-6 text-[14px] ">
+                <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%] pt-6 text-[14px] ">
                       <p className="mb-2">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
                       <p className="mb-2">{product.description}</p>                     
 

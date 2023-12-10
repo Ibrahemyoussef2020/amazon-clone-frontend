@@ -3,8 +3,8 @@ import React from "react";
 const Offer = ({ offer }) => {
   
   return (
-    <article className={`${offer.classes} max-w-[400px] sm:min-h-[350px]  bg-white z-30 m-3 sm:p-4 p-1 cursor-not-allowed overflow-hidden`}>
-      <h2 className="text-lg xl:text-xl font-semibold mt-0 mb-2 mx-2">
+    <article className={`${offer.classes} max-w-[400px] sm:min-h-[350px]  bg-white z-30 m-3 sm:p-4 p-[2px] cursor-not-allowed overflow-hidden`}>
+      <h2 className="text-md sm:text-lg xl:text-xl font-semibold mt-0 mb-2 mx-2">
         <span className=" text-sm sm:text-lg">{offer.title} </span>{" "}
         <span className="text-md hidden sm:inline text-[#333]">| {offer.details}</span>
       </h2>

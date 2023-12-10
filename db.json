@@ -19,7 +19,7 @@
       "title": "Unlimited streaming",
       "details": "Browes offer without any  hizitaion",
       "image": "images/home_grid_3",
-      "link": "Subscribe within us"
+      "link": "Join within us"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "title": "Shop Pet Supplies",
       "details": "Group of Seperated Mels",
       "image": "images/home_grid_5",
-      "link": "Provide Helthy and Tasty",
+      "link": "Helthy and Tasty",
       "classes":""
     },
     {
@@ -98,7 +98,7 @@
       "title": "Unlimited streaming",
       "details": "Browes without hizitaion",
       "image": "images/home_grid_11",
-      "link": "Subscribe within us"
+      "link": "Join within us"
     },
     {
       "id": 12,
@@ -115,7 +115,7 @@
       "title": "Shop Pet Supplies",
       "details": "Group of Seperated Mels",
       "image": "images/home_grid_13",
-      "link": "Provide Helthy and Tasty"
+      "link": "Helthy and Tasty"
     },
     {
       "id": 14,
