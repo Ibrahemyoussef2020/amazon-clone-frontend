@@ -117,61 +117,61 @@ const Orders = () => {
             .map(product =>
 
               <article className="text-sm xl:text-md my-4 pt-5 flex   items-center border-t-[30px] border-solid border-[#eee] text-[#0F1111]  font-medium w-full" key={product?.id}>
-                <div className="w-full lg:w-[33%] p-4">
+                <div className="w-full lg:w-[33%] p-4 ">
                   <div className="mx-auto  mt-4 sm:mx-0 p-4 flex items-center justify-center sm:justify-start sm:border lg:border-none border-solid border-[#eee] text-[#0F1111]">
                     <img className="max-h-[300px] w-[100%] max-w-[300px]" src={`/${product?.image}.jpg`} alt="d" />
                   </div>
                 </div>
 
-                <div className="pt-4 sm:pt-12 px-4 w-[100%] md:w-[45%] lg:w-[35%]">
+                <div className="pt-4 sm:2 px-4 w-[100%] md:w-[45%] lg:w-[35%]">
                   <div className="flex mb-1  gap-1">
                     <h3 className="text-lg whitespace-nowrap">Product Title: </h3>
-                    <p className="font-semibold !text-[14px] text-[#0F1111] pt-1 max-w-[90%] whitespace-nowrap overflow-hidden">{product.title[0]?.toUpperCase()}{product.title.slice(1)}</p>
+                    <p className="font-semibold !text-lg text-[#0F1111]  max-w-[90%] whitespace-nowrap overflow-hidden">{product.title[0]?.toUpperCase()}{product.title.slice(1)}</p>
                   </div>
 
                   <div className="flex  mb-1 text-lg gap-1">
                   <h3 className="text-lg whitespace-nowrap">Product Rating: </h3> 
-                    <span className="font-semibold whitespace-nowrap flex-1 !text-[14px] pt-1">{product.avgRating}</span>
+                    <span className="font-semibold whitespace-nowrap flex-1 !text-lg ">{product.avgRating}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg whitespace-nowrap ">Item Price: </h3>
-                    <span className="text-[14px] font-semibold  whitespace-nowrap flex-1 pt-1">{product.price}</span>
+                    <span className="text-lg font-semibold  whitespace-nowrap flex-1 ">{product.price}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg whitespace-nowrap ">Item Count: </h3>
-                    <span className="text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.quantity}</span>
+                    <span className="text-lg font-semibold whitespace-nowrap flex-1 ">{product.quantity}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg  whitespace-nowrap ">total price: </h3>
-                    <span className=" text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.total}</span>
+                    <span className=" text-lg font-semibold whitespace-nowrap flex-1 ">{product.total}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 ">
                     <h3 className="text-lg   whitespace-nowrap ">payment method: </h3>
-                    <span className=" font-semibold !text-[14px] whitespace-nowrap flex-1 pt-1">Upon receipt</span>
+                    <span className=" font-semibold !text-lg whitespace-nowrap flex-1 ">Upon receipt</span>
                   </div>
 
                   <div className="flex  mb-1  gap-1">
                     <h3 className="text-lg whitespace-nowrap ">Request date: </h3>
-                    <span className="text-[14px] font-semibold whitespace-nowrap flex-1 pt-1">{product.orderDate}</span>
+                    <span className="text-lg font-semibold whitespace-nowrap flex-1 ">{product.orderDate}</span>
                   </div>
 
                   <div className="flex mb-1  gap-1 max-w-[400px] !leading-7">
                     <h3 className="text-lg whitespace-nowrap ">Receipt date: </h3>
-                    <p className="text-[14px] pt-1 flex-1">
+                    <p className="text-lg ">
                     The expected time to receipt your order will be any time between 
-                    <span className="mx-2 font-semibold text-[14px]">{product.receivedDateStart}</span> && 
-                    <span className="mx-2 font-semibold text-[14px]">{product.receivedDateEnd}</span> 
+                    <span className="mx-2 font-semibold text-lg">{product.receivedDateStart}</span> && 
+                    <span className="mx-2 font-semibold text-lg">{product.receivedDateEnd}</span> 
                     </p>
                   </div>            
                   
                 </div>
 
-                <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%] pt-6 text-[14px] ">
-                      <p className="mb-2">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
+                <div className="p-4 font-semibold w-full sm:w-[55%] md:pl-16 lg:w-[32%] !pt-6  text-lg ">
+                      <p className="mb-2 md:mt-0">{product.title[0].toUpperCase()}{product.title.slice(1)}</p>
                       <p className="mb-2 !leading-7">{product.description}</p>                     
 
                       <div className="pt-4">
@@ -187,9 +187,9 @@ const Orders = () => {
                       <span className="block font-bold text-[#0F1111]">tomorrow, 23 Nov</span>
                     </p>
                       
-                      {product.free_delivery ? <span className="mt-2 text-[14px]  text-[#0F1111] inline-block">Fulfilled by Amazon - FREE Shipping</span>
+                      {product.free_delivery ? <span className="mt-2 text-lg  text-[#0F1111] inline-block">Fulfilled by Amazon - FREE Shipping</span>
                       
-                      : <span className="mt-2  text-[#0F1111] text-[14px] inline-block">Fulfilled by Clients - Price and  Delivery</span> 
+                      : <span className="mt-2  text-[#0F1111] text-lg inline-block">Fulfilled by Clients - Price and  Delivery</span> 
                       }
                     
                   </div>    
@@ -202,11 +202,11 @@ const Orders = () => {
                         {<Productbadge badge={product.badge} />}
                       </div>
 
-                      <div className="text-[#555] text-[13px] flex gap-2 mt-2 mb-4 leading-6 text-center">
+                      <div className="text-[#555] text-[13px] flex !flex-nowrap gap-2 mt-2 mb-4 leading-6 text-center">
                       {product.ratings.toString().slice(0,3)}+ bought in past month
                       </div>
 
-                  </div>          
+                </div>          
               </article>
             )
         }
