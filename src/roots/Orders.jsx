@@ -123,7 +123,7 @@ const Orders = () => {
                   </div>
                 </div>
 
-                <div className="pt-4 sm:pt-12 px-4 w-[100%] bg-red-100 md:w-[45%] lg:w-[35%]">
+                <div className="pt-4 sm:pt-12 px-4 w-[100%] md:w-[45%] lg:w-[35%]">
                   <div className="flex mb-1  gap-1">
                     <h3 className="text-lg  whitespace-nowrap">Product Title: </h3>
                     <p className="font-semibold !text-[14px] text-[#0F1111] pt-1 max-w-[90%] whitespace-nowrap overflow-hidden">{product.title[0]?.toUpperCase()}{product.title.slice(1)}</p>
