@@ -81,7 +81,7 @@ const CarouselSavingCorner = () => {
               className="block !m-auto"
             >
               <img
-                src={`/${product.image}.jpg`}
+                src={`/${product.image}.webp`}
                 alt={product.title}
                 className="block !m-auto"
               />

@@ -16,42 +16,42 @@ const Carousel = () => {
       >
         <SwiperSlide className="sm:none">
             <img
-              src="/images/slider-0.jpg"
+              src="/images/slider-0.webp"
               alt="the rings of power"
               className="h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide className="sm:none">
             <img
-              src="/images/slider-1.jpg"
+              src="/images/slider-1.webp"
               alt="the rings of power"
               className="h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="/images/slider-2.jpg"
+              src="/images/slider-2.webp"
               alt="the rings of power"
               className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="/images/slider-3.jpg"
+              src="/images/slider-3.webp"
               alt="the rings of power"
               className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="/images/slider-4.jpg"
+              src="/images/slider-4.webp"
               alt="the rings of power"
               className="min-h-[100%] min-w-[100%]"
             />
         </SwiperSlide>
         <SwiperSlide>
             <img
-              src="/images/slider-5.jpg"
+              src="/images/slider-5.webp"
               alt="the rings of power"
               className="min-h-[100%] min-w-[100%]"
             />

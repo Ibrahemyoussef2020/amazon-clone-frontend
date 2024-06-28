@@ -24,7 +24,7 @@ const ProductDetailsPoster = ({part}) => {
   return (
     <div className='flex !flex-nowrap justify-between items-center py-2 px-3 border border-solid border-[#ccc]'>
         <article className='flex !flex-nowrap items-center gap-2 lg:gap-6'>
-            <img src={`/${poster?.image}.jpg`} alt={poster?.brand} className='max-h-[50px]' />
+            <img src={`/${poster?.image}.webp`} alt={poster?.brand} className='max-h-[50px]' />
             <p className=' text-lg max-w-[250px]'>{poster?.title} {poster?.description?.slice(0,30)}</p>    
         </article>
 

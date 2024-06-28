@@ -38,7 +38,7 @@ const Orders = () => {
           <div className=" md:hidden">
             <div className="md:hidden flex-1 nav__categories bg-[#364759] text-white flex items-center  py-3 px-2"><i className="fa-solid fa-location-dot pb-[2px]"></i><span className="ml-1">Deliver to Egypt</span><i className="fa-solid fa-angle-down text-sm text-gray-600"></i></div>
             <div className="p-8">
-              <img src="/images/empty-cart-mob.jpg" alt="empty" className="max-w-[300px] mx-auto" />
+              <img src="/images/empty-cart-mob.webp" alt="empty" className="max-w-[300px] mx-auto" />
             </div>
             <h2 className="text-3xl text-center !font-semibold mb-2">You don't have Orders</h2>
 
@@ -119,7 +119,7 @@ const Orders = () => {
               <article className="text-sm xl:text-md my-4 pt-5 flex   items-center border-t-[30px] border-solid border-[#eee] text-[#0F1111]  font-medium w-full" key={product?.id}>
                 <div className="w-full lg:w-[33%] p-4 ">
                   <div className="mx-auto  mt-4 sm:mx-0 p-4 flex items-center justify-center sm:justify-start sm:border lg:border-none border-solid border-[#eee] text-[#0F1111]">
-                    <img className="max-h-[300px] w-[100%] max-w-[300px]" src={`/${product?.image}.jpg`} alt="d" />
+                    <img className="max-h-[300px] w-[100%] max-w-[300px]" src={`/${product?.image}.webp`} alt="d" />
                   </div>
                 </div>
 

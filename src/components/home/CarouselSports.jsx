@@ -94,7 +94,7 @@ const CarouselSports = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={`/${product.image}.jpg`}
+                    src={`/${product.image}.webp`}
                     alt={product.title}
                     className="max-w-[270px] max-h-[200px] "
                   />

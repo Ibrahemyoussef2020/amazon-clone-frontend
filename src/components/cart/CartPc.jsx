@@ -77,7 +77,7 @@ const handleByProcess = ()=>{
                         return <article key={product.id} className="grid grid-cols-12 pt-4 pb-10 px-4 bg-white border-b border-solid border-[#ccc]">
 
                         <div className="col-span-4 flex justify-center items-center p-1">
-                            <img src={`/${product?.image}.jpg`} alt={product.brand}  className="min-h-[200px] max-h-[220px]"/>
+                            <img src={`/${product?.image}.webp`} alt={product.brand}  className="min-h-[200px] max-h-[220px]"/>
                         </div>
                         <div className="col-span-8 pl-4 flex !flex-nowrap items-start">
                             <div className="details flex-1 font-thin">

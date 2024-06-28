@@ -91,7 +91,7 @@ const CarouselHair = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={`/${product.image}.jpg`}
+                    src={`/${product.image}.webp`}
                     alt={product.title}
                     className=" min-w-[200px] max-h-[150px] "
                   />

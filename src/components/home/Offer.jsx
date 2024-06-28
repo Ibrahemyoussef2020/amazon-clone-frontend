@@ -10,7 +10,7 @@ const Offer = ({ offer }) => {
       </h2>
       <picture className="block">
         <img
-          src={`/${offer.image}.jpg`}
+          src={`/${offer.image}.webp`}
           alt={offer.title}
           className="h-[100%] w-[100%] object-cover mx-auto"
         />

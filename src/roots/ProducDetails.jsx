@@ -42,30 +42,30 @@ const ProducDetails = () => {
                 <li className="mb-2">
                   <Link onClick={_=>setRotate_y('y_0')} className={`block w-[50px] h-[55px] p-[1px] overflow-hidden border-[1px] border-solid border-[#777] rounded-xl`}>
                     <img 
-                      src={`/${product.image}.jpg`} alt={product.title}  className="w-[100%] h-[100%] y_0"/>
+                      src={`/${product.image}.webp`} alt={product.title}  className="w-[100%] h-[100%] y_0"/>
                   </Link>
                 </li>
                 <li className="mb-2">
                   <Link onClick={_=>setRotate_y('y_45')} className={`block w-[50px] h-[55px] p-[1px] overflow-hidden border-[1px] border-solid border-[#777] rounded-xl`}>
                     <img 
-                      src={`/${product.image}.jpg`} alt={product.title}  className="w-[100%] h-[100%] y_45"/>
+                      src={`/${product.image}.webp`} alt={product.title}  className="w-[100%] h-[100%] y_45"/>
                   </Link>
                 </li>
                 <li className="mb-2">
                   <Link onClick={_=>setRotate_y('y_60')} className={`block w-[50px] h-[55px] p-[1px] overflow-hidden border-[1px] border-solid border-[#777] rounded-xl`}>
                     <img 
-                      src={`/${product.image}.jpg`} alt={product.title}  className="w-[100%] h-[100%] y_60"/>
+                      src={`/${product.image}.webp`} alt={product.title}  className="w-[100%] h-[100%] y_60"/>
                   </Link>
                 </li>
                 <li className="mb-2">
                   <Link onClick={_=>setRotate_y('y_90')} className={`block w-[50px] h-[55px] p-[1px] overflow-hidden border-[1px] border-solid border-[#777] rounded-xl`}>
                     <img 
-                      src={`/${product.image}.jpg`} alt={product.title}  className="w-[100%] h-[100%] y_90"/>
+                      src={`/${product.image}.webp`} alt={product.title}  className="w-[100%] h-[100%] y_90"/>
                   </Link>
                 </li> 
             </ul>
             <div className="m-auto relative flex-1 flex justify-center p-4  text-center h-[100%]">
-              <img src={`/${product.image}.jpg`} alt={product.title} className={`product-details-img block flex-1 max-h-[100%] ${rotate_y} `}/>
+              <img src={`/${product.image}.webp`} alt={product.title} className={`product-details-img block flex-1 max-h-[100%] ${rotate_y} `}/>
               <button className="p-2 bg-white rounded-full absolute top-9 right-9 cursor-not-allowed" disabled>
                 <i className="fa-solid fa-arrow-up-from-bracket text-3xl"></i>
               </button>

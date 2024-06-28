@@ -183,7 +183,7 @@ const CategoriesAside = ({ handleFilter, reSortLists, selectedValue, constantLis
             ref={ref_premium_offer}
           />
           <span className={`ml-2 mr-1`}>
-            <img src="/images/amazone-small-arrow.png" alt=""  className="w-[15px] h-[10px] -mb-2"/>
+            <img src="/images/amazone-small-arrow.webp" alt=""  className="w-[15px] h-[10px] -mb-2"/>
           </span>
           <span className={`label__sub-title ml-1`}>
            |  Enabled in Premium          

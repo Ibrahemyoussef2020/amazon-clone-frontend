@@ -34,7 +34,7 @@ const HeaderTop = () => {
           className="flex mr-2 max-h-[45px]  !flex-nowrap  lg:max-h-[50px] max-w-[120px] lg:max-w-[130px] my-1 py-2 justify-center rounded-sm	 hover:outline outline-1 outline-white text-white "
         >
           <img
-            src="/images/amazon.png"
+            src="/images/amazon.webp"
             alt="amazon"
             className="h-[100%] max-w-[100%] "
           />
@@ -54,7 +54,7 @@ const HeaderTop = () => {
         <Search />
         {/**************************************** */}
         <div className="country hidden lg:flex items-baseline my-1 py-3 lg:mr-1 gap-[1px] hover:outline outline-1 rounded-sm outline-white cursor-not-allowed">
-          <img src="/images/usa.png" alt="USA" className="max-h-[15px]" />
+          <img src="/images/usa.webp" alt="USA" className="max-h-[15px]" />
           <span className="font-black text-sm">EN</span>
 
           <button
@@ -133,7 +133,7 @@ const HeaderTop = () => {
             className="flex mx-1 max-h-[50px] w-[100px] !flex-nowrap  my-1 py-2 justify-center  text-white "
           >
             <img
-              src="/images/amazon.png"
+              src="/images/amazon.webp"
               alt="amazon"
               className="h-[100%] w-[100%] "
             />

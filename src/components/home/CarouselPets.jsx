@@ -82,7 +82,7 @@ const CarouselPets = () => {
               >
                 <Link to={`/product-details/pets/${product.id}`}>
                   <img
-                    src={`${product.image}.jpg`}
+                    src={`${product.image}.webp`}
                     alt={product.title}
                     className="h-[200px]"
                   />

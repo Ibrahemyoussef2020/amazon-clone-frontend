@@ -85,28 +85,28 @@ const ProductMobileDetails = ({product , setProduct , deliveryPrice}) => {
         >
             <SwiperSlide>
                 <img
-                src={`/${product.image}.jpg`}
+                src={`/${product.image}.webp`}
                 alt={product.brand}
                 className="max-h-[350px] block mx-auto y_0"
                 />
             </SwiperSlide>
             <SwiperSlide>
                 <img
-                src={`/${product.image}.jpg`}
+                src={`/${product.image}.webp`}
                 alt={product.brand}
                 className="max-h-[350px] block mx-auto y_45"
                 />
             </SwiperSlide>
             <SwiperSlide>
                 <img
-                src={`/${product.image}.jpg`}
+                src={`/${product.image}.webp`}
                 alt={product.brand}
                 className="max-h-[350px] block mx-auto y_60"
                 />
             </SwiperSlide>
             <SwiperSlide>
                 <img
-                src={`/${product.image}.jpg`}
+                src={`/${product.image}.webp`}
                 alt={product.brand}
                 className="max-h-[350px] block mx-auto y_90"
                 />

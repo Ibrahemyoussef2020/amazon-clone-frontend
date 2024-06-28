@@ -80,7 +80,7 @@ const CarouselProducts = () => {
                   className="block !m-auto"
                 >
                   <img
-                    src={`/${product.image_small}.jpg`}
+                    src={`/${product.image_small}.webp`}
                     alt={product.title}
                     className="h-[150px] w-[125px]"
                   />

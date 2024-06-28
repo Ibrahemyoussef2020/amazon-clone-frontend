@@ -194,7 +194,7 @@ const SelectCategoryResults = () => {
         <div className=" hidden md:block">
           <div className=" p-4 pb-8 lg:gap-[70px] items-end lg:item-start">
               <div className="">
-                  <img src="/images/empty-cart-mob.jpg" className="w-[200px] lg:w-[300px] mx-auto text-red-500" alt="kkk"/>
+                  <img src="/images/empty-cart-mob.webp" className="w-[200px] lg:w-[300px] mx-auto text-red-500" alt="kkk"/>
               </div>
               <div className="lg:pb-4">
                   <h2 className="text-2xl lg:text-3xl !font-semibold mb-2">No results according to your search</h2>
@@ -217,7 +217,7 @@ const SelectCategoryResults = () => {
 
           <div className=" md:hidden">
             <div className="p-8">
-              <img src="/images/empty-cart-mob.jpg" alt="empty" className="max-w-[300px] mx-auto" />
+              <img src="/images/empty-cart-mob.webp" alt="empty" className="max-w-[300px] mx-auto" />
             </div>
             <h2 className="text-xl sm:text-2xl text-center !font-semibold mb-2">No results according to your search</h2>
 
@@ -239,7 +239,7 @@ const SelectCategoryResults = () => {
 
                 <article className="text-sm xl:text-md flex !flex-nowrap  sm:flex-col  max-w-[100%] sm:max-w-[210px] md:max-w-[230px] lg:max-w-[240px] xl:max-w-[260px] mb-8 border border-solid border-[#eee] text-[#0F1111]  font-medium" key={product?.id}>
                   <div className="mx-auto bg-[#efefef]  flex items-center justify-center p-4 sm:p-8 h-[300px] sm:h-[270px]  w-[100%]">
-                    <img className="max-h-[100%] max-w-[100%] min-h-[150px]" src={`/${product?.image}.jpg`} alt="d" />
+                    <img className="max-h-[100%] max-w-[100%] min-h-[150px]" src={`/${product?.image}.webp`} alt="d" />
                   </div>
 
                   <div className="py-2 px-4">

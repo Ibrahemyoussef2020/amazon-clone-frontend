@@ -32,7 +32,7 @@ const CarouselCategory = ()=> {
         <SwiperSlide>
           <Link to='/'>
             <img
-              src="/images/category_0.jpg"
+              src="/images/category_0.webp"
               alt="all brands"
               className="block "
             />
@@ -41,20 +41,20 @@ const CarouselCategory = ()=> {
 
         <SwiperSlide>
           <Link to='/search-results/sports'>
-            <img src="/images/category_1.jpg" alt="Devices" className="block " />
+            <img src="/images/category_1.webp" alt="Devices" className="block " />
           </Link>
         </SwiperSlide>
 
         <SwiperSlide>
           <Link to='/search-results/fashion'>
-            <img src="/images/category_2.jpg" alt="Fashion" className="block " />
+            <img src="/images/category_2.webp" alt="Fashion" className="block " />
           </Link>
         </SwiperSlide>
 
         <SwiperSlide>
           <Link to="/search-results/computers">
             <img
-              src="/images/category_3.jpg"
+              src="/images/category_3.webp"
               alt="Computer software"
               className="block "
             />
@@ -64,7 +64,7 @@ const CarouselCategory = ()=> {
         <SwiperSlide>
           <Link to='/search-results/appliaces'>
             <img
-              src="/images/category_4.jpg"
+              src="/images/category_4.webp"
               alt="kitchen"
               className="block "
             />
@@ -74,7 +74,7 @@ const CarouselCategory = ()=> {
         <SwiperSlide>
           <Link to="/search-results/mobiles">
             <img
-              src="/images/category_5.jpg"
+              src="/images/category_5.webp"
               alt="mobiles"
               className="block "
             />
