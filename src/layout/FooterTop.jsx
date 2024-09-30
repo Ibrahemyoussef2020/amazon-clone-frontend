@@ -123,7 +123,7 @@ const FooterTop = () => {
         <hr className="bg-[#eee] h-[.5px] border-none p-0 my-5" />
 
         <div className="py-6 flex justify-center flex-col sm:flex-row lg:w-[900px] m-auto">
-          <img
+          <img loading="lazy"
             src="/images/amazon.webp"
             alt="amazone"
             className="h-[40px] sm:h-[30px] mx-auto sm:mx-0 sm:mr-[100px]  mb-5 sm:mb-0  relative sm:-bottom-[10px]"
@@ -142,7 +142,7 @@ const FooterTop = () => {
             </div>
 
             <div className="w-[122px] flex items-center gap-2 border-solid border rounded  border-white py-3  px-2  cursor-not-allowed">
-              <img src="/images/usa.webp" alt="USA" className="h-[15px]" />
+              <img loading="lazy" src="/images/usa.webp" alt="USA" className="h-[15px]" />
               <input
               id="usa-navbar"
                 className="bg-inherit focus:outline-none text-xs max-w-[47px]  cursor-not-allowed"

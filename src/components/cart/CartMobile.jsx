@@ -61,7 +61,7 @@ const handleByProcess = ()=>{
 
           <div>
             <div className="p-8">
-              <img src="/images/empty-cart-mob.webp" alt="empty" className="max-w-[300px] mx-auto" />
+              <img loading="lazy" src="/images/empty-cart-mob.webp" alt="empty" className="max-w-[300px] mx-auto" />
             </div>
             <h2 className="text-3xl text-center !font-semibold mb-2">Your Amazon cart is empty</h2>
 
@@ -86,7 +86,7 @@ const handleByProcess = ()=>{
               <article key={product.id} className="mb-4 bg-[#607d8b00] py-4 pl-4">
                 <div className="top flex !flex-nowrap gap-5">
                   <div key={product.id} className="min-w-[30%] max-w-[110px] max-h-[170px] sm:max-w-[200px] sm:max-h-[200px] mb-4">
-                    <img src={`/${product.image}.webp`} alt={product.type} className="w-[100%] h-[100%]"/>
+                    <img loading="lazy" src={`/${product.image}.webp`} alt={product.type} className="w-[100%] h-[100%]"/>
                   </div>
                   <div className="flex-2 text-xl">
                     <p className=" !font-thin mb-3">

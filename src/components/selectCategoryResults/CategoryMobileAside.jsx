@@ -267,7 +267,7 @@ const CategoryMobileAside = ({ handleFilter, reSortLists, selectedValue, constan
               value="free_delivery"
             />
 
-            <img src="/images/amazone-small-arrow.webp" alt="" className="w-[15px] h-[10px] -mb-2" />
+            <img loading="lazy" src="/images/amazone-small-arrow.webp" alt="" className="w-[15px] h-[10px] -mb-2" />
             <span className=" text-lg pl-2">|</span>
             <span className="pl-1 mt-1"> Fulfield by Amazone</span>  
           </label>

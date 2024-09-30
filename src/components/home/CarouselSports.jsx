@@ -93,7 +93,7 @@ const CarouselSports = () => {
                   to={`product-details/sports/${product.id}`}
                   className="block !m-auto"
                 >
-                  <img
+                  <img loading="lazy"
                     src={`/${product.image}.webp`}
                     alt={product.title}
                     className="max-w-[270px] max-h-[200px] "

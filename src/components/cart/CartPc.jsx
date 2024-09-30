@@ -55,7 +55,7 @@ const handleByProcess = ()=>{
                 
                     <div className="flex p-8 gap-4 items-end lg:items-center">
                         <div className="w-full lg:w-fit">
-                            <img src="/images/empty-cart-pc.svg" className="w-[300px] lg:w-[230px] mx-auto" alt="kkk"/>
+                            <img loading="lazy" src="/images/empty-cart-pc.svg" className="w-[300px] lg:w-[230px] mx-auto" alt="kkk"/>
                         </div>
                         <div>
                             <h2 className="text-3xl !font-semibold mb-1">Your Amazon cart is empty</h2>
@@ -77,7 +77,7 @@ const handleByProcess = ()=>{
                         return <article key={product.id} className="grid grid-cols-12 pt-4 pb-10 px-4 bg-white border-b border-solid border-[#ccc]">
 
                         <div className="col-span-4 flex justify-center items-center p-1">
-                            <img src={`/${product?.image}.webp`} alt={product.brand}  className="min-h-[200px] max-h-[220px]"/>
+                            <img loading="lazy" src={`/${product?.image}.webp`} alt={product.brand}  className="min-h-[200px] max-h-[220px]"/>
                         </div>
                         <div className="col-span-8 pl-4 flex !flex-nowrap items-start">
                             <div className="details flex-1 font-thin">

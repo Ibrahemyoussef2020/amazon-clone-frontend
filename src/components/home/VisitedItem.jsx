@@ -4,7 +4,7 @@ const VisitedItem = ({ product, rat , section}) => {
   return (
     <article className="w-[200px] m-auto p-3 flex flex-col justify-center  gap-3">
       <Link to={`/product-details/${section}/${product.id}`}>
-        <img
+        <img loading="lazy"
           src={`${product.image}.webp`}
           alt={product.title}
           className="max-w-[200px] max-h-[150px]"

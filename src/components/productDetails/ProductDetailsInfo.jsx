@@ -99,7 +99,7 @@ const ProductDetailsInfo = ({ product }) => {
         >
           <SwiperSlide className=" !flex justify-center">
             <button className="max-w-[85px] leading-[.8]">
-              <img
+              <img loading="lazy"
                 src="/images/product-details-1.webp"
                 alt="all brands"
                 className="block m-auto w-[35px] h-[35px]"
@@ -112,7 +112,7 @@ const ProductDetailsInfo = ({ product }) => {
 
           <SwiperSlide className=" !flex justify-center">
             <button className="max-w-[85px] leading-[.8]">
-              <img
+              <img loading="lazy"
                 src="/images/product-details-2.webp"
                 alt="all brands"
                 className="block m-auto w-[35px] h-[35px]"
@@ -125,7 +125,7 @@ const ProductDetailsInfo = ({ product }) => {
 
           <SwiperSlide className=" !flex justify-center">
             <button className="max-w-[85px] leading-[.8]">
-                <img
+                <img loading="lazy"
                   src="/images/product-details-3.webp"
                   alt="all brands"
                   className="block m-auto w-[35px] h-[35px]"
@@ -138,7 +138,7 @@ const ProductDetailsInfo = ({ product }) => {
 
           <SwiperSlide className=" !flex justify-center">
             <button className="max-w-[85px] leading-[.8]">
-              <img
+              <img loading="lazy"
                 src="/images/product-details-4.webp"
                 alt="all brands"
                 className="block m-auto w-[35px] h-[35px]"

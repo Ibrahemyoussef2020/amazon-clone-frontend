@@ -90,7 +90,7 @@ const CarouselHair = () => {
                   to={`/product-details/pets/${product.id}`}
                   className="block !m-auto"
                 >
-                  <img
+                  <img loading="lazy"
                     src={`/${product.image}.webp`}
                     alt={product.title}
                     className=" min-w-[200px] max-h-[150px] "

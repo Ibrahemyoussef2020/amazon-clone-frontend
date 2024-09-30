@@ -114,7 +114,7 @@ const NavBar = () => {
       {/********************  pooster ********************** */}
 
       <div className="justify-end ml-4 mr-2 text-3xl hidden lg:flex">
-        <img src="/images/amazone-sale.webp" alt="11.11 Sale" className="max-h-[40px] min-w-[400px]" />
+        <img loading="lazy" src="/images/amazone-sale.webp" alt="11.11 Sale" className="max-h-[40px] min-w-[400px]" />
       </div>
     </div>
   );

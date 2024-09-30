@@ -40,7 +40,7 @@ const Login = () => {
 
   return <section className="p-4 w-[90%] max-w-[400px]  mx-auto">
     <Link className="" to="/">
-      <img src="/images/amazone-login.webp" alt="Amazone" className="mx-auto" />
+      <img loading="lazy" src="/images/amazone-login.webp" alt="Amazone" className="mx-auto" />
     </Link>
     <form action="#" className="mt-6 border border-solid border-[#ccc] p-6">
       <h1 className=" text-5xl font-thin mb-4">Sign in</h1>

@@ -80,7 +80,7 @@ const CarouselSavingCorner = () => {
               to={`/product-details/saving_corner/${product.id}`}
               className="block !m-auto"
             >
-              <img
+              <img loading="lazy"
                 src={`/${product.image}.webp`}
                 alt={product.title}
                 className="block !m-auto"

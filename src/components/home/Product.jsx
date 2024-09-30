@@ -7,7 +7,7 @@ const Product = ({ item }) => {
         iam her as a title
       </h2>
       <picture className="block">
-        <img
+        <img loading="lazy"
           src={item.img}
           alt={item.title}
           className="h-[100%] w-[100%] object-cover"

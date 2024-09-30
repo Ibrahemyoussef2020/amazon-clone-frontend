@@ -25,7 +25,7 @@ const ProductDelivery = ({product , setProduct , deliveryPrice}) => {
                     Amazone prime
                 </a>
                 <div className='py-2 mt-3'>
-                    <img src='/images/amazon-prime.webp' className='max-w-[110px] mx-auto'/>
+                    <img loading="lazy" src='/images/amazon-prime.webp' className='max-w-[110px] mx-auto'/>
                 </div>
             </div>
         </div>    

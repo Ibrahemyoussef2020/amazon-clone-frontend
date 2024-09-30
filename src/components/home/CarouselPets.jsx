@@ -81,7 +81,7 @@ const CarouselPets = () => {
                 className="py-4 !flex  h-[100%]"
               >
                 <Link to={`/product-details/pets/${product.id}`}>
-                  <img
+                  <img loading="lazy"
                     src={`${product.image}.webp`}
                     alt={product.title}
                     className="h-[200px]"

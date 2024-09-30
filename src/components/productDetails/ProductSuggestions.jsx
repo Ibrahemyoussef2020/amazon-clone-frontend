@@ -53,7 +53,7 @@ const ProductSuggestions = () => {
             suggestions.map(suggestion => 
             <article key={suggestion.id} className="grid grid-cols-12 mb-7 gap-2 max-w-[46%] sm:max-w-[100%] md:max-w-[46%] mx-auto lg:max-w-[100%]">
                 <div className="col-span-12 lg:col-span-5 flex">
-                    <img src={`/${suggestion.image}.webp`} alt={suggestion.brand}  className="max-h-[150px] lg:min-h-[110px]"/>
+                    <img loading="lazy" src={`/${suggestion.image}.webp`} alt={suggestion.brand}  className="max-h-[150px] lg:min-h-[110px]"/>
                 </div>
                 <div className="col-span-12 lg:col-span-7 flex">
                     <a 

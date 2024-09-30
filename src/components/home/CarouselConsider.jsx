@@ -86,7 +86,7 @@ const CarouselConsider = () => {
                   to={`/product-details/consider/${product.id}`}
                   className="block !m-auto"
                 >
-                  <img
+                  <img loading="lazy"
                     src={`/${product.image}.webp`}
                     alt={product.title}
                     className=" min-w-[250px] md:min-w-[300px] max-h-[150px]"

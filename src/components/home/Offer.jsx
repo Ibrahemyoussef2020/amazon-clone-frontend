@@ -9,7 +9,7 @@ const Offer = ({ offer }) => {
         <span className="text-md hidden sm:inline text-[#333]">| {offer.details}</span>
       </h2>
       <picture className="block">
-        <img
+        <img loading="lazy"
           src={`/${offer.image}.webp`}
           alt={offer.title}
           className="h-[100%] w-[100%] object-cover mx-auto"

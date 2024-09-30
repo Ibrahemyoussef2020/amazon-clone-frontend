@@ -79,7 +79,7 @@ const CarouselProducts = () => {
                   to={`/product-details/products/${product.id}`}
                   className="block !m-auto"
                 >
-                  <img
+                  <img loading="lazy"
                     src={`/${product.image_small}.webp`}
                     alt={product.title}
                     className="h-[150px] w-[125px]"
